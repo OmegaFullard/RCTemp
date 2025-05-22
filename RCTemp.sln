@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCTemp", "RCTemp\RCTemp.csproj", "{09B908B1-7B21-42A5-8534-51A5A08ADB62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCTemp.Tests", "RCTemp.Tests\RCTemp.Tests.csproj", "{BAAA0B5E-624B-42B9-90F0-0BB8E31195FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09B908B1-7B21-42A5-8534-51A5A08ADB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B908B1-7B21-42A5-8534-51A5A08ADB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B908B1-7B21-42A5-8534-51A5A08ADB62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B908B1-7B21-42A5-8534-51A5A08ADB62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAA0B5E-624B-42B9-90F0-0BB8E31195FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAA0B5E-624B-42B9-90F0-0BB8E31195FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAA0B5E-624B-42B9-90F0-0BB8E31195FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAA0B5E-624B-42B9-90F0-0BB8E31195FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A8495D7-80EE-443A-9F14-77527A500801}
+	EndGlobalSection
+EndGlobal
