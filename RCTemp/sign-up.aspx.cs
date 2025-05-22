@@ -7,12 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace RCTemp
 {
-    public partial class SiteMaster : MasterPage
+    public partial class sign_up : System.Web.UI.Page
     {
-        public SiteMaster()
-        {
-            Load += Page_Load;
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
 

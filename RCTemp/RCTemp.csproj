@@ -354,7 +354,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Themes\MasterSite.css" />
+    <Content Include="App_Themes\MasterSite\carousel.css" />
+    <Content Include="App_Themes\MasterSite\checkout.css" />
+    <Content Include="App_Themes\MasterSite\dropdowns.css" />
+    <Content Include="App_Themes\MasterSite\headers.css" />
+    <Content Include="App_Themes\MasterSite\jumbotrons.css" />
+    <Content Include="App_Themes\MasterSite\modals.css" />
+    <Content Include="App_Themes\MasterSite\Page.css" />
+    <Content Include="App_Themes\MasterSite\pricing.css" />
+    <Content Include="App_Themes\MasterSite\sign-in.css" />
+    <Content Include="App_Themes\MasterSite\sign-up.css" />
+    <Content Include="App_Themes\MasterSite\styles.css" />
+    <Content Include="Cart.aspx" />
+    <Content Include="checkout.js" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -404,11 +416,14 @@
     <Content Include="images\favicon\favicon-32x32.png" />
     <Content Include="images\favicon\favicon.ico" />
     <Content Include="images\favicon\safari-pinned-tab.svg" />
+    <Content Include="images\gamergirl.png" />
     <Content Include="images\generaluser.png" />
     <Content Include="images\graph.jfif" />
     <Content Include="images\handshake.png" />
     <Content Include="images\instagram-logo-24.png" />
+    <Content Include="images\laptopcellphone.png" />
     <Content Include="images\lock-alt-solid-24.png" />
+    <Content Include="images\PDLogo.png" />
     <Content Include="images\person.jfif" />
     <Content Include="images\person1.png" />
     <Content Include="images\RCLogo.png" />
@@ -416,6 +431,7 @@
     <Content Include="images\Report1.png" />
     <Content Include="images\Report2.png" />
     <Content Include="images\safari-pinned-tab.svg" />
+    <Content Include="images\support.png" />
     <Content Include="images\techbanner.png" />
     <Content Include="images\techbg.png" />
     <Content Include="images\techbg2.png" />
@@ -430,6 +446,7 @@
     <Content Include="images\Thumbnails\Tulips.jpg" />
     <Content Include="images\twitter-logo-24.png" />
     <Content Include="images\user-rectangle-solid-24.png" />
+    <Content Include="script.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -491,7 +508,16 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="search.js" />
+    <Content Include="Services.aspx" />
+    <Content Include="sign-in.aspx" />
+    <Content Include="sign-up.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="styles\base.css" />
+    <Content Include="styles\default.css" />
+    <Content Include="styles\grid.css" />
+    <Content Include="styles\listView.css" />
+    <Content Include="Support.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -507,6 +533,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\clsEmployee.cs" />
     <Compile Include="Classes\clsRCTemp.cs" />
     <Compile Include="clsRCTemp_Web.cs" />
@@ -579,6 +612,27 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign-in.aspx.cs">
+      <DependentUpon>sign-in.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sign-in.aspx.designer.cs">
+      <DependentUpon>sign-in.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sign-up.aspx.cs">
+      <DependentUpon>sign-up.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sign-up.aspx.designer.cs">
+      <DependentUpon>sign-up.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -593,6 +647,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Support.aspx.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support.aspx.designer.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -603,6 +664,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controls_Add\" />
+    <Folder Include="Controls_Delete\" />
+    <Folder Include="Controls_Find\" />
+    <Folder Include="Controls_Search\" />
+    <Folder Include="Controls_Update\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
