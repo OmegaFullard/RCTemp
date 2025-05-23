@@ -330,6 +330,10 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2025.1.416.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\AppData\Roaming\Telerik\Updates\Telerik_UI_for_ASP.NET_AJAX_2025_1_416_Dev_hotfix\Bin462\Telerik.Web.UI.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -354,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Account\SignOut.aspx" />
     <Content Include="App_Themes\MasterSite\carousel.css" />
     <Content Include="App_Themes\MasterSite\checkout.css" />
     <Content Include="App_Themes\MasterSite\dropdowns.css" />
@@ -387,6 +392,13 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls_Add\ctrEmployee_Add.ascx" />
+    <Content Include="Controls_Delete\ctrEmployee_Delete.ascx" />
+    <Content Include="Controls_Find\ctrEmployee_Find.ascx" />
+    <Content Include="Controls_Search\ctrSearch_Employee.ascx" />
+    <Content Include="Controls_Search\ctrSearch_Employee_Find.ascx" />
+    <Content Include="Controls_Search\ctrSearch_Inventory_Update.ascx" />
+    <Content Include="Controls_Update\ctrEmployee_Update.ascx" />
     <Content Include="ctrEmployee.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Employee.aspx" />
@@ -481,6 +493,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -522,8 +538,26 @@
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="xsRCTemp.xsc">
+      <DependentUpon>xsRCTemp.xsd</DependentUpon>
+    </Content>
+    <None Include="xsRCTemp.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>xsRCTemp.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="xsRCTemp.xss">
+      <DependentUpon>xsRCTemp.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -543,7 +577,7 @@
     <Compile Include="Classes\clsEmployee.cs" />
     <Compile Include="Classes\clsRCTemp.cs" />
     <Compile Include="clsRCTemp_Web.cs" />
-    <Compile Include="clsReports.cs" />
+    <Compile Include="Classes\clsReports.cs" />
     <Compile Include="clsSearch.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -551,6 +585,49 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Add\ctrEmployee_Add.ascx.cs">
+      <DependentUpon>ctrEmployee_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls_Add\ctrEmployee_Add.ascx.designer.cs">
+      <DependentUpon>ctrEmployee_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Delete\ctrEmployee_Delete.ascx.cs">
+      <DependentUpon>ctrEmployee_Delete.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Delete\ctrEmployee_Delete.ascx.designer.cs">
+      <DependentUpon>ctrEmployee_Delete.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Find\ctrEmployee_Find.ascx.cs">
+      <DependentUpon>ctrEmployee_Find.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Find\ctrEmployee_Find.ascx.designer.cs">
+      <DependentUpon>ctrEmployee_Find.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Employee.ascx.cs">
+      <DependentUpon>ctrSearch_Employee.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Employee.ascx.designer.cs">
+      <DependentUpon>ctrSearch_Employee.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Employee_Find.ascx.cs">
+      <DependentUpon>ctrSearch_Employee_Find.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Employee_Find.ascx.designer.cs">
+      <DependentUpon>ctrSearch_Employee_Find.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Inventory_Update.ascx.cs">
+      <DependentUpon>ctrSearch_Inventory_Update.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Search\ctrSearch_Inventory_Update.ascx.designer.cs">
+      <DependentUpon>ctrSearch_Inventory_Update.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Update\ctrEmployee_Update.ascx.cs">
+      <DependentUpon>ctrEmployee_Update.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls_Update\ctrEmployee_Update.ascx.designer.cs">
+      <DependentUpon>ctrEmployee_Update.ascx</DependentUpon>
     </Compile>
     <Compile Include="ctrEmployee.ascx.cs">
       <DependentUpon>ctrEmployee.ascx</DependentUpon>
@@ -612,6 +689,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -661,14 +743,14 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="xsRCTemp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xsRCTemp.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controls_Add\" />
-    <Folder Include="Controls_Delete\" />
-    <Folder Include="Controls_Find\" />
-    <Folder Include="Controls_Search\" />
-    <Folder Include="Controls_Update\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
