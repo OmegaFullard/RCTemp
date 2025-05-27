@@ -70,7 +70,7 @@ namespace RCTemp.Classes
             }
         }
 
-        public void DeleteBulk(clsEmployee thisEmployee)
+        public void DeleteEmployee (clsEmployee thisEmployee)
         {
             EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
 

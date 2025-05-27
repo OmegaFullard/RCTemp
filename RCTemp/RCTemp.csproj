@@ -595,36 +595,42 @@
     </Compile>
     <Compile Include="Controls_Delete\ctrEmployee_Delete.ascx.cs">
       <DependentUpon>ctrEmployee_Delete.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Delete\ctrEmployee_Delete.ascx.designer.cs">
       <DependentUpon>ctrEmployee_Delete.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls_Find\ctrEmployee_Find.ascx.cs">
       <DependentUpon>ctrEmployee_Find.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Find\ctrEmployee_Find.ascx.designer.cs">
       <DependentUpon>ctrEmployee_Find.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Employee.ascx.cs">
       <DependentUpon>ctrSearch_Employee.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Employee.ascx.designer.cs">
       <DependentUpon>ctrSearch_Employee.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Employee_Find.ascx.cs">
       <DependentUpon>ctrSearch_Employee_Find.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Employee_Find.ascx.designer.cs">
       <DependentUpon>ctrSearch_Employee_Find.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Inventory_Update.ascx.cs">
       <DependentUpon>ctrSearch_Inventory_Update.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Search\ctrSearch_Inventory_Update.ascx.designer.cs">
       <DependentUpon>ctrSearch_Inventory_Update.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls_Update\ctrEmployee_Update.ascx.cs">
       <DependentUpon>ctrEmployee_Update.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls_Update\ctrEmployee_Update.ascx.designer.cs">
       <DependentUpon>ctrEmployee_Update.ascx</DependentUpon>
