@@ -33,10 +33,10 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Free</h4>
+            <h4 class="my-0 fw-normal">Bronze</h4>
           </div>
           <div class="card-body">
-            <h4 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h4>
+            <h4 class="card-title pricing-card-title">$100<small class="text-body-secondary fw-light">/mo</small></h4>
             <ul class="list-unstyled mt-3 mb-4">
               <li>5 users included</li>
               <li>20 GB of storage</li>
@@ -50,10 +50,10 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Pro</h4>
+            <h4 class="my-0 fw-normal">Silver</h4>
           </div>
           <div class="card-body">
-            <h4 class="card-title pricing-card-title">$99<small class="text-body-secondary fw-light">/mo</small></h4>
+            <h4 class="card-title pricing-card-title">$200<small class="text-body-secondary fw-light">/mo</small></h4>
             <ul class="list-unstyled mt-3 mb-4">
               <li>10 users included</li>
               <li>100 GB of storage</li>
@@ -67,10 +67,10 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm border-primary">
           <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
+            <h4 class="my-0 fw-normal">Gold</h4>
           </div>
           <div class="card-body">
-            <h4 class="card-title pricing-card-title">$299<small class="text-body-secondary fw-light">/mo</small></h4>
+            <h4 class="card-title pricing-card-title">$300<small class="text-body-secondary fw-light">/mo</small></h4>
             <ul class="list-unstyled mt-3 mb-4">
               <li>20 users included</li>
               <li>unlimited storage</li>
@@ -90,9 +90,9 @@
         <thead>
           <tr>
             <th style="width: 34%;"></th>
-            <th style="width: 22%;">Free</th>
-            <th style="width: 22%;">Pro</th>
-            <th style="width: 22%;">Enterprise</th>
+            <th style="width: 22%;">Bronze</th>
+            <th style="width: 22%;">Silver</th>
+            <th style="width: 22%;">Gold</th>
           </tr>
         </thead>
         <tbody>
@@ -123,18 +123,7 @@
             <td><svg class="bi bi-check" width="24" height="24"><use href="#check"/></svg></td>
             <td><svg class="bi bi-check" width="24" height="24"><use href="#check"/></svg></td>
           </tr>
-          <tr>
-            <th scope="row" class="text-start">Unlimited members</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi bi-check" width="24" height="24"><use href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Extra security</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi bi-check" width="24" height="24"><use href="#check"/></svg></td>
-          </tr>
+          
         </tbody>
       </table>
     </div>
@@ -151,7 +140,7 @@
     <div class="row">
       <div class="col-12 col-md">
         <img src="images/RCLogo.png" alt="logo" style="width:50px;height:50px;" />
-        <small class="d-block mb-3 text-body-secondary">&copy; 2018–2024</small>
+        <small class="d-block mb-3 text-body-secondary">&copy; 2018–2025</small>
       </div>
         <br />
         <hr />

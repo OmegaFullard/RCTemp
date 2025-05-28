@@ -11,7 +11,14 @@ namespace RCTemp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.IsPostBack)
+            {
+                if (Page.Request.Form["ctl00$MainContent$ctrSearch_Employee$btnSearch"] == "Search")
+                {
+                    ctrSearch_Employee.PopulateSearchControl();
+                    ctrEmployee.EmpID = ctrSearch_Employee.EmpID;
+                }
+            }
         }
     }
 }
