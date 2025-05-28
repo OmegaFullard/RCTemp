@@ -11,17 +11,8 @@ namespace RCTemp.Controls_Search
 {
 
 
-    public partial class ctrSearch_Employee_Find
+    public partial class ctrSearch_Employee_Update
     {
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
         /// Table1 control.
@@ -33,21 +24,12 @@ namespace RCTemp.Controls_Search
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// txtempid control.
+        /// cmbEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtempid;
-
-        /// <summary>
-        /// btnSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::Telerik.Web.UI.RadMultiColumnComboBox cmbEmployee;
     }
 }
