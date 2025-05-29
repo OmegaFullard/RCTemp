@@ -293,23 +293,28 @@
       <input type="text" class="form-control" id="floatingFName" placeholder="First Name">
               <label for="floatingFName" class="form-label">First Name</label>
     </div>
+      <br />
     <div class="col-md-6">
       <input type="text" class="form-control" id="floatingLName" placeholder="Last Name">
       <label for="floatingLName" class="form-label">Last Name</label>
     </div>
+      <br />
 <div class="col-md-12">
       <input type="text" class="form-control" id="floatingAddress" placeholder="Address">
       <label for="floatingAddress">Address</label>
     </div>
+      <br />
       <div class="col-md-12">
       <input type="text" class="form-control" id="floatingAddress2" placeholder="Address">
       <label for="floatingAddress2">Address 2</label>
     </div>
+      <br />
     <div class="col-md-6">
  
         <input type="text" class="form-control" id="inputCity" placeholder="City">
    <label for="inputCity" class="form-label">City</label>
         </div>
+      <br />
   <div class="col-md-6">
 
     <select id="inputState" class="form-select">
@@ -368,22 +373,28 @@
     </select>
       <label for="inputState" class="form-label">State</label>
   </div>
+      <br />
   <div class="col-md-4">
-    <label for="inputZip" class="form-label">Zip</label>
+    
     <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+      <label for="inputZip" class="form-label">Zip</label>
   </div>
+      <br />
   <div class="col-md-12">
       <input type="tel" class="form-control" id="floatingTel" placeholder="000-000-0000">
       <label for="floatingTel">Phone</label>
     </div>
+      <br />
   <div class="col-md-12">
       <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
       <label for="floatingEmail">Email Address</label>
     </div>
+      <br />
      <div class="col-md-12">
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
+      <br />
 
 
     <div class="form-check text-start my-3">
@@ -392,6 +403,7 @@
         Remember me
       </label>
     </div>
+      <br />
     <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
       <br />
       <br />

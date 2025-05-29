@@ -15,9 +15,11 @@
  <center><img src="images/Employee2.png" alt="employee" style="width:250px;height:250px;" /></center>
 
   <br />
+                <br />
+                <hr />
                 <center><h4>About</h4></center>
 <br />
-                <hr />
+          
 
 
 <p>Royal City Temporary Agency provides temporary, temp-to-perm, and permanent placement for job seekers. We handle pre-screening, personal interviews, vetting, and software assessments for every candidate.</p>
@@ -38,7 +40,7 @@
                 <br />
                 <hr />
 				
-				<h1>Why Choose RC Temps?</h1>
+				<h4>Why Choose RC Temps?</h4>
 				Long standing track record of successful placement of permanent and temporary candidates in various industries.
 				<p>Customer centric: We take the time to get to know your business, company culture, and apply current demands and needs. This allows the organic building and maintaining of long lasting relationships with our clients</p>
 				<p>Candidate focus: We foster personal relationships with every candidate. We are invested in candidates professionl goals and provide placement in a company that aligns with both skills and values.</p>

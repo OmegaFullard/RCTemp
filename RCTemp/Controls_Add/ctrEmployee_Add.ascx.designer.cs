@@ -96,22 +96,22 @@ namespace RCTemp.Controls_Add
         protected global::Telerik.Web.UI.RadTextBox txtLN;
 
         /// <summary>
-        /// valRequiredFieldLN control.
+        /// valRequiredLN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRequiredFieldLN;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRequiredLN;
 
         /// <summary>
-        /// ValidatorCalloutExtender1 control.
+        /// Requere_LN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender ValidatorCalloutExtender1;
+        protected global::AjaxControlToolkit.ValidatorCalloutExtender Requere_LN;
 
         /// <summary>
         /// txtphone control.

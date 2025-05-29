@@ -17,8 +17,8 @@
 
                  </script>
 
-              <div aria-dropeffect="move" style="padding-left:5px; padding-right:10px; height:500px;overflow: auto; background:rgba(236, 236, 236, 1);">    
-                       <div class="HeadingB" >Bulk Update </div>
+             <div aria-dropeffect="move" style="padding-left:10px; padding-right:10px; height:850px;overflow: auto; background:#cfcfcf">    
+                       <div class="HeadingB" >Update Employee </div> <br />
                             <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" >
                                    
                                      <asp:TableRow>
@@ -31,6 +31,7 @@
                                     </asp:TableRow>
                               
                               </asp:Table>
+                  <br />
                                <div class="clear hideSkiplink">
             <asp:Menu ID="NavigationMenu" runat="server" CssClass="sub_menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                 <Items>

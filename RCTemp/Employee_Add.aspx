@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder4" runat="server">
        
               <div aria-dropeffect="move" style="padding-left:10px; padding-right:10px; height:850px;overflow: auto; background:#cfcfcf">    
-                     <h2>Add Employee</h2><br />
+                     <div class="HeadingB" >Add Employee </div><br />
 
                        <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" Height="113px" Width="179px" >
 

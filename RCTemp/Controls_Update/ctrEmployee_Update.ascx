@@ -28,7 +28,7 @@
                
 
                       <div style="padding-left:5px; padding-top:5px; padding-bottom:5px">
-                          <div class="Heading" >Update Employee</div>
+                         
                             <span class="required"><asp:Label ID="lblResult" runat="server" Text=""></asp:Label></span>
                           <div> <asp:Label ID="lblEmpID" runat="server" Text=""></asp:Label></div>  
   <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" Width="1100px" >
@@ -64,14 +64,23 @@
                                                                HighlightCssClass="highlight" runat="server">
                                                        </ajaxtoolkit:ValidatorCalloutExtender>
                                           </asp:TableCell>
+
+                                                                         <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> 
+       <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
+</asp:TableRow>
+ <asp:TableRow>
+            <asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
+             <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
+ </asp:TableRow>
+        <asp:TableRow>
                                           <asp:TableCell>Last Name<span class="required">*</span>:</asp:TableCell>
                                           <asp:TableCell>
                                                    <telerik:RadTextBox ID="txtLN" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>
 
-                                                   <asp:RequiredFieldValidator  ID="valRequiredFieldLN" runat="server" ControlToValidate="txtLN" ValidationGroup="Submit"
+                                                   <asp:RequiredFieldValidator  ID="valRequiredLN" runat="server" ControlToValidate="txtLN" ValidationGroup="Submit"
                                                       ErrorMessage  ="Please enter Last Name!"><span class="required">!</span></asp:RequiredFieldValidator>
 
-                                                      <ajaxtoolkit:ValidatorCalloutExtender ID="ValidatorCalloutExtender1"  TargetControlID="valRequiredLN"  Width="250px"  
+                                                      <ajaxtoolkit:ValidatorCalloutExtender ID="Requere_LN"  TargetControlID="valRequiredLN"  Width="250px"  
                                                                HighlightCssClass="highlight" runat="server">
                                                        </ajaxtoolkit:ValidatorCalloutExtender>
 

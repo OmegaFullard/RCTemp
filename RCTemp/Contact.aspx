@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
    
-     <center><img src="images/RCLogo.png" alt="company logo" style="width:250px;height:250px;" /></center>
+     <center><img src="images/RCLogo.png" alt="company logo" style="width:50px;height:50px;" /></center>
     <h2>Contact Us</h2>
                <br />
    <address>
