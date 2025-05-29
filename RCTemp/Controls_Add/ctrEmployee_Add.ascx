@@ -101,7 +101,7 @@
                                                         &nbsp;&nbsp;<telerik:RadTextBox ID="txtemail" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="False" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>     
                                                     </asp:TableCell>
                                                 </asp:TableRow> 
-                                   <asp:TableRow  > <telerik:RadTextBox Runat="server"></telerik:RadTextBox>
+                                   <asp:TableRow  > 
                                                      <asp:TableCell HorizontalAlign="Right">&nbsp;&nbsp;</asp:TableCell>
                                                      <asp:TableCell HorizontalAlign="Left">&nbsp;&nbsp;</asp:TableCell>
                                              </asp:TableRow> 

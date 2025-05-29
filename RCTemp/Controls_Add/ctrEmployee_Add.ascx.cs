@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using static RCTemp.xsRCTemp;
 
 namespace RCTemp.Controls_Add

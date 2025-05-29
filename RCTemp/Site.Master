@@ -50,15 +50,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
                 </Scripts>
-     <script>          
-	
-    $(document).ready(function () {
-        $('#pw').keypress(function (e) {
-            if (e.keyCode == 13)
-                $('#GoBtn').click();
-        });
-    });
-</script>
+     
          
            
         </asp:ScriptManager>
@@ -113,18 +105,35 @@
                    <asp:MenuItem Text="Employees">
                 
                <asp:MenuItem Text="Employee Search" NavigateUrl="Employee_Find.aspx"></asp:MenuItem>
-               <asp:MenuItem Text="Inventory Add" NavigateUrl="Employee_Add.aspx"></asp:MenuItem>
-               <asp:MenuItem Text= "Inventory Update" NavigateUrl="Employee_Update.aspx"></asp:MenuItem>
+               <asp:MenuItem Text="Employee Add" NavigateUrl="Employee_Add.aspx"></asp:MenuItem>
+               <asp:MenuItem Text= "Employee Update" NavigateUrl="Employee_Update.aspx"></asp:MenuItem>
              
 			 
              </asp:MenuItem>
 
-           
+                         <asp:MenuItem Text="RC Temp">
+   
+  
+  <asp:MenuItem Text= "About" NavigateUrl="About.aspx"></asp:MenuItem>
+ <asp:MenuItem Text= "Contact" NavigateUrl="Contact.aspx"></asp:MenuItem>
+                             <asp:MenuItem Text="Services" NavigateUrl="Services.aspx"></asp:MenuItem>
+<asp:MenuItem Text="Support" NavigateUrl="Support.aspx"></asp:MenuItem>
+
+</asp:MenuItem>
+
+                                  <asp:MenuItem Text="Account Mgt">
+   
+  
+  <asp:MenuItem Text= "Login" NavigateUrl="sign-in.aspx"></asp:MenuItem>
+ <asp:MenuItem Text= "Register" NavigateUrl="sign-up.aspx"></asp:MenuItem>
+ 
+
+</asp:MenuItem>  
             </Items>
             </asp:Menu>
 </div>
 
-      <div><h4 style="font-size: xx-large; font-weight: bold; font-style: italic; text-align: center;">Royal City Temp Employees</h4></div>
+      <div><h4 style="font-size: xx-large; font-weight: bold; font-style: italic; text-align: center;">Royal City Temp Agency: Employees</h4></div>
 	    
         
 

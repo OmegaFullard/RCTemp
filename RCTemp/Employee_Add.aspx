@@ -26,7 +26,7 @@
                                           <asp:Menu ID="NavigationMenu" runat="server" CssClass="sub_menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                                               <Items>
                                                   <asp:MenuItem Text="Find" NavigateUrl="Employee_Find.aspx"></asp:MenuItem> 
-                                                   <asp:MenuItem  Text="Add"  NavigateUrl="Employeex"></asp:MenuItem>
+                                                   <asp:MenuItem  Text="Add"  NavigateUrl="Employee_Add"></asp:MenuItem>
                                                   <asp:MenuItem Text="Update" NavigateUrl="Employee_Update.aspx"></asp:MenuItem> 
                                                
                                               </Items>

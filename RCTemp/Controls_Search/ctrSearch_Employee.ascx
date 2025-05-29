@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctrSearch_Employee.ascx.cs" Inherits="RCTemp.Controls_Search.ctrEmployee_Search" %>
 
-<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
                        
                        <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" >

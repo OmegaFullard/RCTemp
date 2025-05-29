@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ctrEmployee.ascx.cs" Inherits="RCTemp.ctrEmployee" %>
 
 <div style="width: 1200px; height:500px;  overflow: auto; padding-left:5px" >
-           <div class="Heading" >Inventory</div>&nbsp;&nbsp;&nbsp 
+           <div class="Heading" >Employee</div>&nbsp;&nbsp;&nbsp 
            <div><asp:HiddenField ID="ctrHiddebField" runat="server" /></div><br />
 <div style="width: 1200px; height:500px;  overflow: auto; padding-left:5px" >
    
