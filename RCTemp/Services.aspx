@@ -147,10 +147,10 @@
       <div class="col-4 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Job Portal"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Client Portal"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Customized"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Local"></a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Job Portal</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Client Portal</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Customized</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Local</a></li>
           
           
         </ul>
@@ -158,10 +158,10 @@
       <div class="col-4 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Job Search"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Prep Interviews"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Resume Review"></a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Skills Test"></a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Job Search</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Prep Interviews</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resume Review</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Skills Test</a></li>
         </ul>
       </div>
       <div class="col-4 col-md">
