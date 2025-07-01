@@ -1,0 +1,376 @@
+﻿/*normalize*/
+html,
+body,
+form {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: normal 16px "Segoe UI", Arial, sans-serif;
+    color: #1e1e2f;
+    /*Newly Added*/
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+a {
+    background: transparent;
+}
+
+img {
+    border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    width: 100px;
+    margin-right: 0px;
+    margin-top: 0px;
+    height: 100px;
+    margin-left: 0px;
+}
+
+#logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+/* Google */
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+/* YouTube */
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+/* Instagram */
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+/* Pinterest */
+.fa-pinterest {
+    background: #cb2027;
+    color: white;
+}
+/* Snap */
+.fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+/* Skype */
+.fa-skype {
+    background: #00aff0;
+    color: white;
+}
+/* Android */
+.fa-android {
+    background: #a4c639;
+    color: white;
+}
+/* Dribbble? */
+.fa-dribbble {
+    background: #ea4c89;
+    color: white;
+}
+/* Vimeo */
+.fa-vimeo {
+    background: #45bbff;
+    color: white;
+}
+/* Tumblr */
+.fa-tumblr {
+    background: #2c4762;
+    color: white;
+}
+/* Vine */
+.fa-vine {
+    background: #00b489;
+    color: white;
+}
+/* Foursquare */
+.fa-foursquare {
+    background: #45bbff;
+    color: white;
+}
+/* Stumbleupon? */
+.fa-stumbleupon {
+    background: #eb4924;
+    color: white;
+}
+/* Flickr */
+.fa-flickr {
+    background: #f40083;
+    color: white;
+}
+/* Yahoo */
+.fa-yahoo {
+    background: #430297;
+    color: white;
+}
+/* Soundcloud */
+.fa-soundcloud {
+    background: #ff5500;
+    color: white;
+}
+/* Reddit */
+.fa-reddit {
+    background: #ff5700;
+    color: white;
+}
+/* RSS */
+.fa-rss {
+    background: #ff6600;
+    color: white;
+}
+
+button,
+input {
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+hr {
+    border-width: 1px 0 0 0;
+    border-color: #767676;
+    border-style: solid;
+}
+
+/*typography*/
+h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin: .5em 0;
+}
+
+h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.25em;
+    font-weight: bold;
+    color: #1e1e2f;
+}
+
+h2 {
+    font-size: 1.875em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.125em
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: .875em;
+}
+
+/*template*/
+#wrapper .t-container-fluid {
+    max-width: 100%;
+}
+
+#wrapper .RadButton {
+    font-size: 1em;
+}
+
+#wrapper .RadMenu,
+div.RadMenuPopup,
+#wrapper .RadMenu_Default, #wrapper .RadMenu_Default a.rmLink {
+    font-size: 1em;
+}
+
+/* Form Elements*
+--------------------------------------------------------------------------*/
+
+
+.topnav {
+    background-color: #b4a7d6;
+    width: 100%;
+    /* new features added*/
+    position: sticky;
+    z-index: 1;
+}
+
+    .topnav menu {
+        padding: 4px 0px 4px 8px;
+        /* new features added*/
+        position: sticky;
+        z-index: 1;
+    }
+
+    .topnav ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+        /* new features added*/
+        position: sticky;
+        z-index: 1;
+    }
+
+    .topnav a {
+        background-color: #b4a7d6;
+        border: 1px #1e1e2f solid;
+        color: #884dff;
+        display: block;
+        line-height: 1.35em;
+        padding: 4px 20px;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+        .topnav a:hover {
+            background-color: #f2c2f2;
+            color: rebeccapurple;
+            text-decoration: none;
+        }
+
+div.topnav a:active {
+    background-color: #f0f0f5;
+    color: #1e1e2f;
+    text-decoration: none;
+}
+
+div.hideSkiplink {
+    background-color: #666699;
+    width: 100%;
+    /* new features added*/
+    position: sticky;
+    z-index: 1;
+}
+
+div.sub_menu {
+    padding: 4px 0px 4px 8px;
+}
+
+    div.sub_menu ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+    }
+
+        div.sub_menu ul li a, div.sub_menu ul li a:visited {
+            background-color: #f0f0f5;
+            border: 1px #1e1e2f solid;
+            color: #884dff;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+            div.sub_menu ul li a:hover {
+                background-color: #f2c2f2;
+                color: rebeccapurple;
+                text-decoration: none;
+            }
+
+            div.sub_menu ul li a:active {
+                background-color: #f0f0f5;
+                color: #1e1e2f;
+                text-decoration: none;
+            }
+
+.grdHeader {
+    background-color: #ccc3a3;
+    font-size: 12px;
+}
+
+.grdAlternatingRow {
+    background-color: #f0ecde;
+}
+
+.grdRecords {
+    font-size: 11px;
+    color: #ffffff;
+}
+
+.MyCalendar .ajax__calendar_container {
+    border: 1px solid #646464;
+    background-color: #FFFACD;
+    color: red;
+}
+
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: black;
+}
+
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight: bold;
+}
