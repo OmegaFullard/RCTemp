@@ -132,6 +132,7 @@
 
                                      </asp:Table>        
                   </div>
-                 <div style="padding-left:700px;padding-bottom:10px;">
+<br />
+                 <div style="padding-left:400px;padding-bottom:10px;">
                  <asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="150" Height="25px"  />&nbsp;&nbsp;
                 <asp:Button ID="btnAdd" runat="server" Text="Add" Width="150" Height="25px" ValidationGroup="Submit" /></div>

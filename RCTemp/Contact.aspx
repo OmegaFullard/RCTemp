@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="RCTemp.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-   
+   <br />
+    <br />
      <center><img src="images/RCLogo.png" alt="company logo" style="width:50px;height:50px;" /></center>
+   <div style="padding-left:50px;padding-bottom:10px;"  >
     <h2>Contact Us</h2>
                <br />
    <address>
@@ -28,4 +30,5 @@
      <br />
             <a href="#" class="btn btn-primary">Directions</a>
             <a href="https://google.com/maps?q=39.57.09,75.10.14.8"></a>
+       </div>
 </asp:Content>

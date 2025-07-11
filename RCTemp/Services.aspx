@@ -43,7 +43,7 @@
               <li>limited email support</li>
               
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #2097db;">Sign up for free</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #2097db;">30 Day Free Trial</button>
           </div>
         </div>
       </div>
@@ -83,6 +83,7 @@
       </div>
     </div>
       <hr />
+
     <h2 class="display-6 text-center mb-4">Compare plans</h2>
 
     <div class="table-responsive">
@@ -132,18 +133,14 @@
     
     <center><a class="btn btn-primary" href="Cart.aspx" role="button">Continue to Checkout!</a></center>
              <br/>
-            <a href="default.aspx"><< Back to Home</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="default.aspx"><< Back to Home</a>
          
              <br/>
-    <hr />
 
-    <div class="row">
-      <div class="col-12 col-md">
-        <img src="images/RCLogo.png" alt="logo" style="width:50px;height:50px;" />
-        <small class="d-block mb-3 text-body-secondary">&copy; 2018–2025</small>
-      </div>
+
         <br />
         <hr />
+    <div class="row" style="padding-left:150px;">
       <div class="col-4 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
@@ -172,6 +169,14 @@
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
         </ul>
+      </div>
+        </div>
+    <hr />
+   <br/>
+    <div class="row" style="padding-left:700px;padding-bottom:10px;"  >
+      <div class="col-12 col-md">
+        <img src="images/RCLogo.png" alt="logo" style="width:50px;height:50px;" />
+        <small class="d-block mb-3 text-body-secondary">&copy; 2018–2025</small>
       </div>
     </div>
 
