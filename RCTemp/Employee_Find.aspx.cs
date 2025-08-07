@@ -35,8 +35,15 @@ namespace RCTemp
                     {
 
                         ctrSearch_Employee.PopulateSearchControl();
-                        this.ctrEmployee_Find.EmpID = ctrSearch_Employee.EmpID;
-
+                        
+                            {
+                            if (ctrSearch_Employee.EmpID == 0)
+                            {
+                                return;
+                            }
+                            this.ctrEmployee_Find.EmpID = ctrSearch_Employee.EmpID;
+                            
+                        }
                     }
                 }
             }

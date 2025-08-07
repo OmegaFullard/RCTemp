@@ -9,6 +9,20 @@ namespace RCTemp
 {
     public partial class Employee_Add : System.Web.UI.Page
     {
+        private string m_EmpID = string.Empty;
+
+
+        public string EmpID
+        {
+            get
+            {
+                return m_EmpID;
+            }
+            set
+            {
+                m_EmpID = value;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -20,7 +34,7 @@ namespace RCTemp
                     if (ctrSearch_Employee.EmpID == 0)
                         return;
                     //this.ctrEmployee_Add.ClearControls(); 
-                    this.ctrEmployee_Add.EmpID = ctrSearch_Employee.EmpID;
+                    this.ctrEmployee_Add.EmpID = ctrSearch_Employee.EmpID.ToString();
                 }
 
                 else if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnCreate"] == "Add")

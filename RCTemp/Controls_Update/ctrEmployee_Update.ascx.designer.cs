@@ -42,33 +42,6 @@ namespace RCTemp.Controls_Update
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// txtempid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtempid;
-
-        /// <summary>
-        /// valRequiredFieldempid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valRequiredFieldempid;
-
-        /// <summary>
-        /// Requere_Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ValidatorCalloutExtender Requere_Name;
-
-        /// <summary>
         /// txtFN control.
         /// </summary>
         /// <remarks>

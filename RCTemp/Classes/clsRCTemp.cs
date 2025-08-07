@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Web;
 using static RCTemp.xsRCTemp;
@@ -44,19 +45,20 @@ namespace RCTemp.Classes
         }
 
 
-        public void AddEmployee(clsEmployee thisEmployee)
+        public string AddEmployee(clsEmployee thisEmployee)
         {
             EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
             try
             {
                 adpEmployee.InsertQuery(thisEmployee.FN, thisEmployee.LN, thisEmployee.Phone, thisEmployee.Email, thisEmployee.Available);
+                return "Success";
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
+        
         public void UpdateEmployee(clsEmployee thisEmployee)
         {
             EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
@@ -69,6 +71,7 @@ namespace RCTemp.Classes
                 throw;
             }
         }
+
 
         public void DeleteEmployee (clsEmployee thisEmployee)
         {

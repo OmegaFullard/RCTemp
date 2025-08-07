@@ -1,10 +1,15 @@
-﻿using Microsoft.VisualBasic;
+﻿using Azure.Core;
+using Microsoft.CodeAnalysis;
+using Microsoft.VisualBasic;
 using RCTemp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using Telerik.Web.UI.Diagram;
+using Telerik.Windows.Documents.Model.Drawing.Charts;
+using static Humanizer.In;
 using static RCTemp.xsRCTemp;
 
 namespace RCTemp.Controls_Update
@@ -39,68 +44,44 @@ namespace RCTemp.Controls_Update
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            clsRCTemp theEmployee = new clsRCTemp();
-            EmployeesDataTable tblEmployee = new EmployeesDataTable();
-
-            try
+            if (Page.IsPostBack)
             {
+                if (m_EmpID > 0)
+                    this.lblEmpID.Text = "ID" + m_EmpID.ToString();
+                if (this.lblEmpID.Text.Length == 2)
+                    return;
 
-                if (Page.IsPostBack)
+                try
                 {
-
                     if (Request.Form["ctl00$MainContent$ctrEmployee_Update$btnUpdate"] == "Update")
                     {
                         UpdateEmployee();
                     }
-
-                    else
+                    else if (Request.Form["ctl00$MainContent$ctrSearch_Employee$btnSearch"] == "Search")
                     {
-                        if (m_EmpID == 0)
+                        clsRCTemp theEmployeeDetail = new clsRCTemp();
+                        EmployeesDataTable tblEmployee = (EmployeesDataTable)theEmployeeDetail.GetEmployees(Convert.ToInt32(m_EmpID));
+                        var withBlock = tblEmployee[0];
 
-                            return;
+                        txtFN.Text = withBlock.FN.ToString();
+                        txtLN.Text = withBlock.LN.ToString();
 
-                        tblEmployee = (EmployeesDataTable)theEmployee.GetEmpList();
-                        if (tblEmployee.Count == 0)
+                        if (!withBlock.IsEmailNull())
+                            txtemail.Text = withBlock.Email;
+                        if (!withBlock.IsAvailableNull())
+                            txtavailable.Text = withBlock.Available;
 
-                            return;
-                        {
-                            var withBlock = tblEmployee[0];
-                            txtempid.Text = withBlock.EmpID.ToString();
-                            txtFN.Text = withBlock.FN.ToString();
-                            txtLN.Text = withBlock.LN.ToString();
-                            if (!withBlock.IsPhoneNull())
-                            {
-                                txtemail.Text = withBlock.Email.Trim();
-                                if (!withBlock.IsEmailNull())
-                                    txtemail.Text = withBlock.Email.ToString();
-                            }
-
-                            if (!withBlock.IsAvailableNull())
-                                txtavailable.Text = withBlock.Available.Trim();
-
-                        }
-
-                        this.btnUpdate.Enabled = true;
+                        btnUpdate.Enabled = true;
                     }
-                }
-
-
-                else
-                {
-
                     PopulateControls();
                 }
-            }
-
-
-            catch (Exception ex)
-            {
-                clsRCTemp_Web SendError = new clsRCTemp_Web();
-                string NotificationBody = ex.Message + "  " + ex.StackTrace;
-                SendError.SendMailMessage(NotificationBody);
-                Response.Redirect("ErrorPage.aspx", false);
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
+
 
         public void UpdateEmployee()
         {

@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using Azure.Core;
+using Microsoft.CodeAnalysis;
+using Microsoft.VisualBasic;
 using RCTemp.Classes;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI.Diagram;
+using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
+using static Humanizer.In;
 using static RCTemp.xsRCTemp;
 
 namespace RCTemp.Controls_Find
@@ -30,34 +35,57 @@ namespace RCTemp.Controls_Find
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            clsRCTemp theEmployee = new clsRCTemp();
-            EmployeesDataTable tblEmployee = new EmployeesDataTable();
-
-            try
+            if (Page.IsPostBack)
             {
-                if (Request.Form["ctl00$MainContent$ctrSearch_Employee_Find$btnSearch"] == "Search")
-                    this.lblSearchResult.Text = "ID" + m_EmpID;
-                if ((Page.IsPostBack) & this.lblSearchResult.Text.Length > 0)
+                try
+                {
+                    if (m_EmpID > 0)
+                    {
+                        this.lblSearchResult.Text = "ID" + m_EmpID.ToString();
 
-                    tblEmployee = (EmployeesDataTable)theEmployee.GetEmployees(int.Parse(this.lblSearchResult.Text.Replace("ID", "")));
+                        if (m_EmpID == 2)
+                            return;
 
-                else
+                        if (new clsRCTemp().GetEmployees(int.Parse(this.lblSearchResult.Text.Replace("ID", ""))).Rows.Count == 0)
+                            return;
 
-                    tblEmployee = (EmployeesDataTable)theEmployee.GetEmployeeList();
+                        if (Request.Form["ctl00$MainContent$ctrEmployee_Find$btnExcel"] != null)
+                        {
+                            CreateExcelFiles();
+                        }
+                    }
 
-                this.lblSearchResult.Text = tblEmployee.Rows.Count.ToString();
-                this.grdEmployee.DataSource = tblEmployee.DefaultView;
-                this.grdEmployee.DataBind();
-            }
+                    if (Request.Form["ctl00$MainContent$ctrSearch_Employee_Find$btnSearch"] == "Search")
+                    {
+                        lblSearchResult.Text = "ID" + m_EmpID.ToString();
+                    }
 
-            catch (Exception ex)
-            {
-                var SendError = new clsRCTemp_Web();
-                string NotificationBody = ex.Message + Constants.vbCrLf + ex.StackTrace;
-                SendError.SendMailMessage(NotificationBody);
-                Response.Redirect("ErrorPage.aspx", false);
+                    clsRCTemp theEmployee = new clsRCTemp();
+                    EmployeesDataTable tblEmployee;
+
+                    if (Page.IsPostBack && lblSearchResult.Text.Length > 0)
+                    {
+                        tblEmployee = (EmployeesDataTable)theEmployee.GetEmployees(int.Parse(lblSearchResult.Text.Replace("ID", "")));
+                    }
+                    else
+                    {
+                        tblEmployee = (EmployeesDataTable)theEmployee.GetEmployeeList();
+                    }
+
+                    lblSearchResult.Text = tblEmployee.Rows.Count.ToString();
+                    grdEmployee.DataSource = tblEmployee.DefaultView;
+                    grdEmployee.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    var SendError = new clsRCTemp_Web();
+                    string NotificationBody = ex.Message + Environment.NewLine + ex.StackTrace;
+                    SendError.SendMailMessage(NotificationBody);
+                    Response.Redirect("ErrorPage.aspx", false);
+                }
             }
         }
+
 
         private string ConvertSortDirection(GridViewSortEventArgs e)
         {

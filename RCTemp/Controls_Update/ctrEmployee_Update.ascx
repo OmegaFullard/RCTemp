@@ -33,25 +33,7 @@
                           <div> <asp:Label ID="lblEmpID" runat="server" Text=""></asp:Label></div>  
   <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" Width="1100px" >
                            
-						   <asp:TableRow>
-<asp:TableCell>Employee ID<span class="required">*</span>:</asp:TableCell>
-  <asp:TableCell > 
-                                                  <telerik:RadTextBox ID="txtempid" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="false" ></telerik:RadTextBox>
 
-                                                   <asp:RequiredFieldValidator  ID="valRequiredFieldempid" runat="server" ControlToValidate="txtempid" ValidationGroup="Submit"
-                                                      ErrorMessage  ="Please enter ID!"><span class="required">!</span></asp:RequiredFieldValidator>
-
-                                                      <ajaxtoolkit:ValidatorCalloutExtender ID="Requere_Name"  TargetControlID="valRequiredFieldempid"  Width="250px"  
-                                                               HighlightCssClass="highlight" runat="server">
-                                                       </ajaxtoolkit:ValidatorCalloutExtender>
-                                          </asp:TableCell>
-                                     <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> 
-                                    <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
-                             </asp:TableRow>
-                              <asp:TableRow>
-                                         <asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell><asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
-                                          <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
-                              </asp:TableRow>
                              <asp:TableRow>
                                           <asp:TableCell>First Name<span class="required">*</span>:</asp:TableCell>
                                           <asp:TableCell>
@@ -137,4 +119,4 @@
 						   
 						    </div><br />
                  <div style="padding-left:400px;padding-bottom:10px;"  ><asp:Button ID="btnCancel" runat="server" Text="Cancel" Width="150" Height="25px"  />&nbsp;&nbsp;
-                 <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="150" Height="25px" ValidationGroup="Submit" Enabled="false" /></div>
+                 <asp:Button ID="btnUpdate" runat="server" Text="Update" Width="150" Height="25px" ValidationGroup="Submit" Enabled="true" /></div>

@@ -47,7 +47,7 @@ namespace RCTemp
 
                     tblEmployee = (EmployeesDataTable)theEmployee.GetEmployeeList();
 
-                this.lblSearchResult.Text = tblEmployee.Rows.Count.ToString();
+                this.lblSearchResult.Text = tblEmployee.Rows.Count.ToString() + " Result(s)";
                 this.grdEmployee.DataSource = tblEmployee.DefaultView;
                 this.grdEmployee.DataBind();
             }

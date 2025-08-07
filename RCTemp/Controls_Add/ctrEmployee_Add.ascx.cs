@@ -3,19 +3,22 @@ using RCTemp.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using Telerik.Windows.Documents.Spreadsheet.Expressions.Functions;
+using static Humanizer.In;
 using static RCTemp.xsRCTemp;
 
 namespace RCTemp.Controls_Add
 {
     public partial class ctrEmployee_Add : System.Web.UI.UserControl
     {
-        private int m_EmpID = 0;
+        private string m_EmpID = string.Empty;
 
 
-        public int EmpID
+        public string EmpID
         {
             get
             {
@@ -25,34 +28,34 @@ namespace RCTemp.Controls_Add
             {
                 m_EmpID = value;
             }
-        }
+            }
         protected void Page_Load(object sender, EventArgs e)
         {
-            clsRCTemp theEmployee = new clsRCTemp();
-            EmployeesDataTable tblEmployee = new EmployeesDataTable();
+            //clsRCTemp theEmployee = new clsRCTemp();
+            //EmployeesDataTable tblEmployee = new EmployeesDataTable();
 
-            try
-            {
+            //try
+            //{
 
-                if (Page.IsPostBack)
-                {
-                    if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnAdd"] == "Add")
-                    {
+            //    if (Page.IsPostBack)
+            //    {
+            //        if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnAdd"] == "Add")
+            //        {
 
-                        AddEmployee();
+            //            AddEmployee();
 
-                    }
-                }
-                else
-                {
-                    //PopulateControls();
-                }
-            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //PopulateControls();
+            //    }
+            //}
 
-            catch (Exception)
-            {
-                throw;
-            }
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
         }
 
         public void AddEmployee()
@@ -61,45 +64,28 @@ namespace RCTemp.Controls_Add
             {
                 clsEmployee thisEmployee = new clsEmployee();
 
-
-                if (txtempid.Text.Trim().Length == 0 || txtLN.Text.Trim().Length == 0)
-                    return;
-
-                thisEmployee.EmpID = Conversions.ToInteger(txtempid.Text.Trim());
+                //thisEmployee.EmpID = Conversions.ToInteger(txtempid.Text.Trim());
                 thisEmployee.FN = txtFN.Text.Trim();
-                thisEmployee.LN = txtLN.Text;
+                thisEmployee.LN = txtLN.Text.Trim();
                 thisEmployee.Phone = txtphone.Text.Trim();
                 thisEmployee.Email = txtemail.Text;
                 thisEmployee.Available = txtavailable.Text;
 
-                try
-                {
+                if (txtempid.Text.Trim().Length == 0 || txtLN.Text.Trim().Length == 0)
+                    return;
+
                     clsRCTemp theEmployee = new clsRCTemp();
 
-                    theEmployee.AddEmployee(thisEmployee);
-                    lblResult.Text = "Employee Inventory data has been added";
+                    m_EmpID = theEmployee.AddEmployee(thisEmployee);
+                    lblResult.Text = "ID" + m_EmpID.ToString();
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
-                    if (ex.Number == 2627)
-                    {
-                        lblResult.Text = "Item already exist!";
-                    }
-                    else
-                    {
-                        throw new ApplicationException(ex.Message);
+                  
+                        throw;
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                var SendError = new clsRCTemp_Web();
-                string NotificationBody = ex.Message + "  " + ex.StackTrace;
-                SendError.SendMailMessage(NotificationBody);
-                Response.Redirect("ErrorPage.aspx", false);
-            }
-        }
-
+           
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
