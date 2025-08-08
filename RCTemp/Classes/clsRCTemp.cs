@@ -12,7 +12,7 @@ namespace RCTemp.Classes
 {
     public class clsRCTemp
     {
-        public bool EmpID { get; private set; }
+        
 
         public DataTable GetEmployeeList()
         {
@@ -51,7 +51,7 @@ namespace RCTemp.Classes
             try
             {
                 adpEmployee.InsertQuery(thisEmployee.FN, thisEmployee.LN, thisEmployee.Phone, thisEmployee.Email, thisEmployee.Available);
-                return "Success";
+                return  "Success";
             }
             catch (Exception)
             {

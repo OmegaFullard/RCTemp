@@ -92,14 +92,7 @@ namespace RCTemp.Controls_Update
 
                 var withBlock = thisEmployee;
 
-                if (txtempid.Text.Length == 0)
-                    return;
-                // If cmbEmployee.Text = String.Empty Then Exit Sub
-
-                withBlock.Original_EmpID = Convert.ToInt32(txtempid.Text.Trim());
-
-                // IIf(cmbEmployeeText.Length > 0, cmbEmployee.Text, "******")
-
+               
                 withBlock.FN = txtFN.Text.Trim();
                 withBlock.LN = txtLN.Text.Trim();
                 withBlock.Phone = txtphone.Text.Trim();
@@ -137,7 +130,7 @@ namespace RCTemp.Controls_Update
             if (tblEmployee.Count == 0)
                 return;
             var withBlock = tblEmployee[0];
-            txtempid.Text = withBlock.EmpID.ToString();
+            
             txtFN.Text = withBlock.FN.ToString();
             txtLN.Text = withBlock.LN.ToString();
             if (!withBlock.IsPhoneNull())

@@ -33,7 +33,7 @@
 <asp:TableRow>
 <asp:TableCell>Employee ID<span class="required">*</span>:</asp:TableCell>
   <asp:TableCell > 
-                                                  <telerik:RadTextBox ID="txtempid" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="false" ></telerik:RadTextBox>
+                                                  <telerik:RadTextBox ID="txtempid" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="false" ReadOnly="False"></telerik:RadTextBox>
 
                                                    <asp:RequiredFieldValidator  ID="valRequiredFieldempid" runat="server" ControlToValidate="txtempid" ValidationGroup="Submit"
                                                       ErrorMessage  ="Please enter ID!"><span class="required">!</span></asp:RequiredFieldValidator>
@@ -118,7 +118,7 @@
                                                                 <asp:TableRow> 
                                                     <asp:TableCell HorizontalAlign="Right" Font-Bold="true">Available:</asp:TableCell>
                                                     <asp:TableCell HorizontalAlign="Left">
-                                                        &nbsp;&nbsp;<telerik:RadTextBox ID="txtavailable" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="True" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>     
+                                                        &nbsp;&nbsp;<telerik:RadTextBox ID="txtavailable" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="False" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>     
                                                     </asp:TableCell>
                                                 </asp:TableRow> 
 
