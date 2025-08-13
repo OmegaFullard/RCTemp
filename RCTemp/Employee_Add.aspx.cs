@@ -9,10 +9,10 @@ namespace RCTemp
 {
     public partial class Employee_Add : System.Web.UI.Page
     {
-        private string m_EmpID = string.Empty;
+        private int m_EmpID = 0;
 
 
-        public string EmpID
+        public int EmpID
         {
             get
             {
@@ -34,7 +34,7 @@ namespace RCTemp
                     if (ctrSearch_Employee.EmpID == 0)
                         return;
                     //this.ctrEmployee_Add.ClearControls(); 
-                    this.ctrEmployee_Add.EmpID = ctrSearch_Employee.EmpID.ToString();
+                    this.ctrEmployee_Add.EmpID = ctrSearch_Employee.EmpID;
                 }
 
                 else if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnCreate"] == "Add")

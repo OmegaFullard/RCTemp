@@ -15,10 +15,10 @@ namespace RCTemp.Controls_Add
 {
     public partial class ctrEmployee_Add : System.Web.UI.UserControl
     {
-        private string m_EmpID = string.Empty;
+        private int m_EmpID = 0;
 
 
-        public string EmpID
+        public int EmpID
         {
             get
             {
@@ -28,34 +28,34 @@ namespace RCTemp.Controls_Add
             {
                 m_EmpID = value;
             }
-            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //clsRCTemp theEmployee = new clsRCTemp();
-            //EmployeesDataTable tblEmployee = new EmployeesDataTable();
+            clsRCTemp theEmployee = new clsRCTemp();
+            EmployeesDataTable tblEmployee = new EmployeesDataTable();
 
-            //try
-            //{
+            try
+            {
 
-            //    if (Page.IsPostBack)
-            //    {
-            //        if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnAdd"] == "Add")
-            //        {
+                if (Page.IsPostBack)
+                {
+                    if (Request.Form["ctl00$MainContent$ctrEmployee_Add$btnAdd"] == "Add")
+                    {
 
-            //            AddEmployee();
+                        AddEmployee();
 
-            //        }
-            //    }
-            //    else
-            //    {
-            //        //PopulateControls();
-            //    }
-            //}
+                    }
+                }
+                else
+                {
+                    //PopulateControls();
+                }
+            }
 
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void AddEmployee()
@@ -64,7 +64,7 @@ namespace RCTemp.Controls_Add
             {
                 clsEmployee thisEmployee = new clsEmployee();
 
-                //thisEmployee.EmpID = Conversions.ToInteger(txtempid.Text.Trim());
+                thisEmployee.EmpID = Conversions.ToInteger(txtempid.Text.Trim());
                 thisEmployee.FN = txtFN.Text.Trim();
                 thisEmployee.LN = txtLN.Text.Trim();
                 thisEmployee.Phone = txtphone.Text.Trim();
@@ -74,17 +74,24 @@ namespace RCTemp.Controls_Add
                 if (txtempid.Text.Trim().Length == 0 || txtLN.Text.Trim().Length == 0)
                     return;
 
-                    clsRCTemp theEmployee = new clsRCTemp();
+                //if (!int.TryParse(txtempid.Text.Trim(), out int empId))
+                //{
+                //    lblResult.Text = "Invalid Employee ID.";
+                //    return;
+                //}
+                //thisEmployee.EmpID = empId;
 
-                    m_EmpID = theEmployee.AddEmployee(thisEmployee);
-                    lblResult.Text = "ID" + m_EmpID.ToString();
-                }
-                catch (Exception)
-                {
-                  
-                        throw;
-                    }
-                }
+                clsRCTemp theEmployee = new clsRCTemp();
+
+              
+                m_EmpID = int.Parse(theEmployee.AddEmployee(thisEmployee));
+                this.lblResult.Text = "ID" + m_EmpID.ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
            
 
         private void btnCancel_Click(object sender, EventArgs e)
