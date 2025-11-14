@@ -2512,8 +2512,10 @@ namespace RCTemp.xsRCTempTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees ORDER BY LN";
+            this._commandCollection[2].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees \r\nWHERE (EmpID = @Em" +
+                "pID)\r\n ORDER BY LN";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpI" +
@@ -2580,8 +2582,9 @@ namespace RCTemp.xsRCTempTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByEmp(xsRCTemp.EmployeesDataTable dataTable) {
+        public virtual int FillByEmp(xsRCTemp.EmployeesDataTable dataTable, int EmpID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(EmpID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2593,8 +2596,9 @@ namespace RCTemp.xsRCTempTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual xsRCTemp.EmployeesDataTable GetDataByEmp() {
+        public virtual xsRCTemp.EmployeesDataTable GetDataByEmp(int EmpID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(EmpID));
             xsRCTemp.EmployeesDataTable dataTable = new xsRCTemp.EmployeesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -20,7 +20,7 @@
 <meta name="msapplication-TileColor" content="#2097db"/> 
 <meta name="theme-color" content="#f0f0f0"/> 
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title><%: Page.Title %> - Royal City Employees</title>
+ <title><%: Page.Title %> Royal City Temp Employees</title>
 
      <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -116,9 +116,10 @@
   
   <asp:MenuItem Text= "About" NavigateUrl="About.aspx"></asp:MenuItem>
  <asp:MenuItem Text= "Contact" NavigateUrl="Contact.aspx"></asp:MenuItem>
-                             <asp:MenuItem Text="Services" NavigateUrl="Services.aspx"></asp:MenuItem>
+ <asp:MenuItem Text="Services" NavigateUrl="Services.aspx"></asp:MenuItem>
 <asp:MenuItem Text="Support" NavigateUrl="Support.aspx"></asp:MenuItem>
-
+ <asp:MenuItem Text="Privacy" NavigateUrl="Privacy.aspx"></asp:MenuItem>
+<asp:MenuItem Text="Terms" NavigateUrl="Terms.aspx"></asp:MenuItem>
 </asp:MenuItem>
 
                                   <asp:MenuItem Text="Account Mgt">
@@ -133,7 +134,7 @@
             </asp:Menu>
 </div>
 
-      <div><h4 style="font-size: xx-large; font-weight: bold; font-style: italic; text-align: center;">Royal City Temp Agency: Employees</h4></div>
+      <div><h4 style="font-size: xx-large; font-weight: bold; font-style: italic; text-align: center;">Royal City Temp Agency</h4></div>
 	    
         
 
@@ -312,7 +313,7 @@
       <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2025 Royal City Temp Agency</span>
     </div>
       <br />
- <a href="#" class="btn btn-primary">Follow Us on Social Media!</a> 
+ <a href="FollowUs.aspx" class="btn btn-primary">Follow Us on Social Media!</a> 
       <br />
       <br />
        <div class="row">

@@ -266,7 +266,7 @@
 
           <hr class="my-4"/>
 
-          <button class="btn btn-success rounded-pill px-3" type="submit">Submit Order</button>
+            <button class="btn btn-success" type="submit">Submit Order</button>
 
       </div>
     </div>
@@ -277,9 +277,9 @@
   
     
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
+      <li class="list-inline-item"><a href="Privacy.aspx">Privacy</a></li>
+      <li class="list-inline-item"><a href="Terms.aspx">Terms</a></li>
+      <li class="list-inline-item"><a href="Support.aspx">Support</a></li>
     </ul>
 
 </div>

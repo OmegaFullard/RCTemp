@@ -7,7 +7,7 @@
               
                 <br/>
  <center><img src="images/Employee.png" alt="employees" style="width:250px;height:250px;" /></center>
- 
+ <br />
   <p>"We strive to find the best employment opportunity for our clients."</p>
 
  
@@ -41,20 +41,20 @@
 
 <h2><strong>Recruiters</strong></h2>
 
-    <br />
-                <p>
-<strong>Admin Staffing:</strong></p>
+   
+                
+<strong>Admin Staffing:</strong>
 <p>In-House and Remote staffing. We elminate the challenges of sourcing and hiring exceptional new employees.
-    </p><br />
+    </p>
 <strong>Event Staffing:</strong>
 <p>Staffing for special events.</p>
-    <br />
+   
     
 <strong>Technical Staffing:</strong> 
 <p>Top candidates within the Tech and Computer Science Industries.
     </p> 
 	
-	<strong>Staffing Options</strong><
+	<strong>Staffing Options:</strong>
 	<p>Our stffing options are Temporary, Direct Hire, and Temp-to-Perm.</p>
 	<br />
  <hr />

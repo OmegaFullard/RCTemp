@@ -25,15 +25,15 @@
      }
 
  </script>
-               
+             <br />  
 <div style="padding-left:5px; padding-top:5px; padding-bottom:5px">
 
 <span class="required"><asp:Label ID="lblResult" runat="server" Text=""></asp:Label></span>
     <asp:Table ID="Table1" runat="server" ForeColor="#6082b6" Width="1100px" >
 <asp:TableRow>
-<asp:TableCell>Employee ID<span class="required">*</span>:</asp:TableCell>
+ <asp:TableCell HorizontalAlign="Right" Font-Bold="false">Employee ID<span class="required">*</span>:</asp:TableCell>
   <asp:TableCell > 
-                                                  <telerik:RadTextBox ID="txtempid" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="false" ReadOnly="False"></telerik:RadTextBox>
+                                                 &nbsp;&nbsp;<telerik:RadTextBox ID="txtempid" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="false" ReadOnly="False"></telerik:RadTextBox>
 
                                                    <asp:RequiredFieldValidator  ID="valRequiredFieldempid" runat="server" ControlToValidate="txtempid" ValidationGroup="Submit"
                                                       ErrorMessage  ="Please enter ID!"><span class="required">!</span></asp:RequiredFieldValidator>
@@ -50,9 +50,9 @@
                                           <asp:TableCell>&nbsp;&nbsp;</asp:TableCell> <asp:TableCell>&nbsp;&nbsp;</asp:TableCell>
                               </asp:TableRow>
                              <asp:TableRow>
-                                          <asp:TableCell>First Name<span class="required">*</span>:</asp:TableCell>
+                                           <asp:TableCell HorizontalAlign="Right" Font-Bold="false">First Name<span class="required">*</span>:</asp:TableCell>
                                           <asp:TableCell>
-                                                   <telerik:RadTextBox ID="txtFN" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="False" ></telerik:RadTextBox>
+                                                   &nbsp;&nbsp;<telerik:RadTextBox ID="txtFN" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="False" ></telerik:RadTextBox>
 
                                                    <asp:RequiredFieldValidator  ID="valRequiredFN" runat="server" ControlToValidate="txtFN" ValidationGroup="Submit"
                                                       ErrorMessage  ="Please enter First Name!"><span class="required">!</span></asp:RequiredFieldValidator>
@@ -70,9 +70,9 @@
  </asp:TableRow>
         <asp:TableRow>
 
-                                          <asp:TableCell>Last Name<span class="required">*</span>:</asp:TableCell>
+                                           <asp:TableCell HorizontalAlign="Right" Font-Bold="false">Last Name<span class="required">*</span>:</asp:TableCell>
                                           <asp:TableCell>
-                                                   <telerik:RadTextBox ID="txtLN" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>
+                                                   &nbsp;&nbsp;<telerik:RadTextBox ID="txtLN" runat="server" Width="200px" Height="25px" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>
 
                                                    <asp:RequiredFieldValidator  ID="valRequiredLN" runat="server" ControlToValidate="txtLN" ValidationGroup="Submit"
                                                       ErrorMessage  ="Please enter Last Name!"><span class="required">!</span></asp:RequiredFieldValidator>
@@ -89,13 +89,9 @@
                                                      <asp:TableCell HorizontalAlign="Right">&nbsp;&nbsp;</asp:TableCell>
                                                      <asp:TableCell HorizontalAlign="Left">&nbsp;&nbsp;</asp:TableCell>
                                              </asp:TableRow> 
-                                   <asp:TableRow  > 
-                                                     <asp:TableCell HorizontalAlign="Right">&nbsp;&nbsp;</asp:TableCell>
-                                                     <asp:TableCell HorizontalAlign="Left">&nbsp;&nbsp;</asp:TableCell>
-                                             </asp:TableRow> 
 
                                              <asp:TableRow>                     
-                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="true">Phone:</asp:TableCell>
+                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="false">Phone:</asp:TableCell>
                                                     <asp:TableCell HorizontalAlign="Left">
                                                        &nbsp;&nbsp; <telerik:RadTextBox ID="txtphone" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="False" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>
                                                     </asp:TableCell>
@@ -105,7 +101,7 @@
                                                      <asp:TableCell HorizontalAlign="Left">&nbsp;&nbsp;</asp:TableCell>
                                              </asp:TableRow> 
                                              <asp:TableRow> 
-                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="true">Email:</asp:TableCell>
+                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="false">Email:</asp:TableCell>
                                                     <asp:TableCell HorizontalAlign="Left">
                                                         &nbsp;&nbsp;<telerik:RadTextBox ID="txtemail" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="False" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>     
                                                     </asp:TableCell>
@@ -116,7 +112,7 @@
                                              </asp:TableRow> 
 											 
                                                                 <asp:TableRow> 
-                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="true">Available:</asp:TableCell>
+                                                    <asp:TableCell HorizontalAlign="Right" Font-Bold="false">Available:</asp:TableCell>
                                                     <asp:TableCell HorizontalAlign="Left">
                                                         &nbsp;&nbsp;<telerik:RadTextBox ID="txtavailable" runat="server" Height="20px" Width="300px" MaxLength="127" ReadOnly="False" Enabled="True" AutoPostBack="False"></telerik:RadTextBox>     
                                                     </asp:TableCell>

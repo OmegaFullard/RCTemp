@@ -121,7 +121,7 @@
     </div>
       <br />
       <br />
- <a href="#" class="btn btn-primary">Follow Us on Social Media!</a> 
+ <a href="FollowUs.aspx" class="btn btn-primary">Follow Us on Social Media!</a> 
       <br />
       <br />
  <!-- Footer -->

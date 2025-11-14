@@ -50,7 +50,7 @@ namespace RCTemp.Classes
             EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
             try
             {
-                adpEmployee.InsertQuery(thisEmployee.FN, thisEmployee.LN, thisEmployee.Phone, thisEmployee.Email, thisEmployee.Available);
+                adpEmployee.InsertQuery(thisEmployee.FN, thisEmployee.LN, thisEmployee.EmpID, thisEmployee.Phone, thisEmployee.Email, thisEmployee.Available);
                 return  "Success";
             }
             catch (Exception)

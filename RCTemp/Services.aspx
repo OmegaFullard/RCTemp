@@ -166,8 +166,8 @@
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Privacy.aspx">Privacy</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Terms.aspx">Terms</a></li>
         </ul>
       </div>
         </div>
