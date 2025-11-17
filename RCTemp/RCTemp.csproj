@@ -116,8 +116,14 @@
     <Reference Include="Microsoft.Extensions.Caching.Memory, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.8.0.1\lib\net462\Microsoft.Extensions.Caching.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.8.0.1\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.8.0.1\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
@@ -191,6 +197,33 @@
     </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.BarCodes, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.BarCodes.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Cryptography, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Quality, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.Quality.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Shared, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Snippets, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.Snippets.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.System, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.System.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.WPFonts, Version=6.2.2.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.2.2\lib\netstandard2.0\PdfSharp.WPFonts.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -389,6 +422,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account\SignOut.aspx" />
+    <Content Include="AdminReviews.aspx" />
+    <Content Include="Apply.aspx" />
     <Content Include="App_Themes\MasterSite\carousel.css" />
     <Content Include="App_Themes\MasterSite\checkout.css" />
     <Content Include="App_Themes\MasterSite\dropdowns.css" />
@@ -402,6 +437,8 @@
     <Content Include="App_Themes\MasterSite\styles.css" />
     <Content Include="Cart.aspx" />
     <Content Include="checkout.js" />
+    <Content Include="ClientPortal.aspx" />
+    <Content Include="ClientResources.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -430,6 +467,9 @@
     <Content Include="Controls_Search\ctrSearch_Employee_Update.ascx" />
     <Content Include="Controls_Update\ctrEmployee_Update.ascx" />
     <Content Include="ctrEmployee.ascx" />
+    <Content Include="Database\AddSavedSearchesAndAlerts.sql" />
+    <Content Include="Database\CreateJobsTable.sql" />
+    <Content Include="Database\CreateResumeReviewsTable.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Employee.aspx" />
     <Content Include="Employee_Add.aspx" />
@@ -441,9 +481,11 @@
     <Content Include="FollowUs.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\adam.png" />
     <Content Include="images\admin.png" />
     <Content Include="images\adminuser.png" />
     <Content Include="images\analytics.jfif" />
+    <Content Include="images\bill.png" />
     <Content Include="images\browserconfig.xml" />
     <Content Include="images\calendar.jfif" />
     <Content Include="images\contactus.jfif" />
@@ -464,8 +506,13 @@
     <Content Include="images\graph.jfif" />
     <Content Include="images\handshake.png" />
     <Content Include="images\instagram-logo-24.png" />
+    <Content Include="images\jessie.png" />
+    <Content Include="images\kannady.png" />
     <Content Include="images\laptopcellphone.png" />
+    <Content Include="images\lilith.png" />
     <Content Include="images\lock-alt-solid-24.png" />
+    <Content Include="images\lola.png" />
+    <Content Include="images\nicole.jpg" />
     <Content Include="images\PDLogo.png" />
     <Content Include="images\person.jfif" />
     <Content Include="images\person1.png" />
@@ -474,6 +521,7 @@
     <Content Include="images\Report1.png" />
     <Content Include="images\Report2.png" />
     <Content Include="images\safari-pinned-tab.svg" />
+    <Content Include="images\skylar.png" />
     <Content Include="images\support.png" />
     <Content Include="images\techbanner.png" />
     <Content Include="images\techbg.png" />
@@ -489,7 +537,10 @@
     <Content Include="images\Thumbnails\Tulips.jpg" />
     <Content Include="images\twitter-logo-24.png" />
     <Content Include="images\user-rectangle-solid-24.png" />
+    <Content Include="JobEdit.aspx" />
+    <Content Include="Jobs.aspx" />
     <Content Include="Privacy.aspx" />
+    <Content Include="ResumeReview.aspx" />
     <Content Include="script.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -561,11 +612,13 @@
     <Content Include="sign-in.aspx" />
     <Content Include="sign-up.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="SkillsTests.aspx" />
     <Content Include="styles\base.css" />
     <Content Include="styles\default.css" />
     <Content Include="styles\grid.css" />
     <Content Include="styles\listView.css" />
     <Content Include="Support.aspx" />
+    <Content Include="Team.aspx" />
     <Content Include="Terms.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -591,6 +644,14 @@
     <Compile Include="Account\SignOut.aspx.designer.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminReviews.aspx.cs">
+      <DependentUpon>AdminReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Apply.aspx.cs">
+      <DependentUpon>Apply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -600,6 +661,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AuthHelper.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -609,6 +671,17 @@
     </Compile>
     <Compile Include="Classes\clsEmployee.cs" />
     <Compile Include="Classes\clsRCTemp.cs" />
+    <Compile Include="ClientPortal.aspx.cs">
+      <DependentUpon>ClientPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientResources.aspx.cs">
+      <DependentUpon>ClientResources.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientResources.aspx.designer.cs">
+      <DependentUpon>ClientResources.aspx</DependentUpon>
+    </Compile>
     <Compile Include="clsRCTemp_Web.cs" />
     <Compile Include="Classes\clsReports.cs" />
     <Compile Include="clsSearch.cs" />
@@ -689,6 +762,9 @@
     <Compile Include="Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeRepository.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Employee_Add.aspx.cs">
       <DependentUpon>Employee_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -731,6 +807,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="JobDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobEdit.aspx.cs">
+      <DependentUpon>JobEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobRepository.cs" />
+    <Compile Include="Jobs.aspx.cs">
+      <DependentUpon>Jobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Privacy.aspx.cs">
       <DependentUpon>Privacy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -740,6 +828,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ResumeReview.aspx.cs">
+      <DependentUpon>ResumeReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReviewRepository.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
@@ -776,6 +871,10 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SkillsTests.aspx.cs">
+      <DependentUpon>SkillsTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Support.aspx.cs">
       <DependentUpon>Support.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -783,9 +882,18 @@
     <Compile Include="Support.aspx.designer.cs">
       <DependentUpon>Support.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Team.aspx.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team.aspx.designer.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Terms.aspx.cs">
       <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="UserRepository.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -801,6 +909,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\Reviews\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
