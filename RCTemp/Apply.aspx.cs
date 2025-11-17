@@ -157,15 +157,4 @@ namespace RCTemp
         public string ResumePath { get; set; }
         public DateTime AppliedDate { get; set; }
     }
-
-    // Minimal repository stub - replace with your real data access implementation.
-    internal static class JobRepository
-    {
-        // Simulate insert and return a new id
-        public static int InsertApplication(Application app)
-        {
-            // TODO: replace with actual database insert logic.
-            return 1;
-        }
-    }
 }

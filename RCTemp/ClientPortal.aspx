@@ -36,20 +36,20 @@
 
         <asp:GridView ID="grdClientJobs" runat="server" AutoGenerateColumns="False" CssClass="table table-hover"
             EmptyDataText="No jobs match your search." DataSourceID="SqlDataSource1" AllowPaging="True">
-            <Columns>
+            <columns>
                 <asp:BoundField DataField="JobId" HeaderText="ID" ItemStyle-Width="60px" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
                 <asp:BoundField DataField="Location" HeaderText="Location" />
                 <asp:BoundField DataField="EmploymentType" HeaderText="Type" />
                 <asp:BoundField DataField="PostedDate" HeaderText="Posted" DataFormatString="{0:yyyy-MM-dd}" ItemStyle-Width="120px" />
                 <asp:TemplateField HeaderText="Actions" ItemStyle-Width="220px">
-                    <ItemTemplate>
+                    <itemtemplate>
                         <a class="btn btn-sm btn-outline-success" href='JobDetails.aspx?id=<%# Eval("JobId") %>'>View</a>
                         &nbsp;
                         <a class="btn btn-sm btn-primary" href='Apply.aspx?id=<%# Eval("JobId") %>'>Apply</a>
-                    </ItemTemplate>
+                    </itemtemplate>
                 </asp:TemplateField>
-            </Columns>
+            </columns>
         </asp:GridView>
 
         <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="Data Source=OIT-L-BY10S73\SQLEXPRESS2019;Initial Catalog=RCTemp;Integrated Security=True;Trust Server Certificate=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Jobs]"></asp:SqlDataSource>
