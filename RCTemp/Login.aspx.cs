@@ -1,11 +1,15 @@
 using System;
 using System.Web;
 using System.Web.Security;
-
+using System.Web.UI.WebControls;
 namespace RCTemp
 {
     public partial class Login : System.Web.UI.Page
     {
+        protected TextBox txtUser;
+        protected TextBox txtPwd;
+        protected Label lblError;
+        protected CheckBox chkRemember;
         protected void Page_Load(object sender, EventArgs e)
         {
             // If already authenticated, optionally redirect away
@@ -87,4 +91,7 @@ namespace RCTemp
         private bool UrlIsLocal(string url)
         {
             // simple check for local URL to avoid open redirect
-            return UrlPath(url).StartsWith("/") && !url.StartsWith("//") && !url.StartsWith("/\\");
+            return url.StartsWith("/") && !url.StartsWith("//") && !url.StartsWith("/\\");
+        }
+    }
+}
