@@ -1,9 +1,24 @@
 using System;
+using System.Web;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls; 
 
 namespace RCTemp
 {
     public partial class JobDetails : System.Web.UI.Page
     {
+        protected TextBox txtTitle;
+        protected TextBox txtLocation;
+        protected TextBox txtDescription;
+        protected TextBox txtType;
+        protected Label lblTitle;
+        protected Label lblLocation;
+        protected Label lblType;
+        protected Label lblPosted;
+        protected Label litDescription;
+        protected Panel pnlJob;
+        protected HtmlAnchor lnkApply; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

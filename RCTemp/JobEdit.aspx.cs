@@ -1,9 +1,17 @@
 using System;
+using System.Web.UI.WebControls;
 
 namespace RCTemp
 {
     public partial class JobEdit : System.Web.UI.Page
     {
+        protected TextBox txtTitle;
+        protected TextBox txtLocation;
+        protected TextBox txtDescription;
+        protected TextBox txtType;
+        protected HiddenField hfJobId;
+        protected CheckBox chkActive;
+        protected Label lblResults;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

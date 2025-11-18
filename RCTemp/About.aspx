@@ -19,7 +19,9 @@
 <p>Royal City Temporary Agency is a small Women-Owned staffing agency serving Royal City and the surrounding suburbs.We are an experienced firm that builds long-standing beneficial relationships with our clients and candidates.</p>
 <p>As strategic career professionals, we use our expertise to impact the lives of our candidates and improve our client’s company culture, one exceptional match at a time.</p>
 <p>Our team is the best staffing agency in Royal City to help keep companies running and people working, so reach out and let us know how we can help.</p>
-
+<br />
+<hr />
+                <p>Meet Our Team</p> <button type="button" class="w-100 btn btn-lg btn-primary" >Team</button>
 
 <br />
 

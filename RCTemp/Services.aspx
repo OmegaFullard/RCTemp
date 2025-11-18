@@ -144,8 +144,8 @@
       <div class="col-4 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Job Portal</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Client Portal</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Jobs.aspx">Job Portal</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="ClientPortal">Client Portal</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Customized</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Local</a></li>
           
@@ -155,17 +155,17 @@
       <div class="col-4 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Job Search</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Prep Interviews</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resume Review</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Skills Test</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Apply.aspx">Job Search</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="ClientResources.aspx">Prep Interviews</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="ResumeReview.aspx">Resume Review</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="SkillsTests.aspx">Skills Test</a></li>
         </ul>
       </div>
       <div class="col-4 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Team.aspx">Team</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Contact.aspx">Locations</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="Privacy.aspx">Privacy</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="Terms.aspx">Terms</a></li>
         </ul>

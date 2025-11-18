@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace RCTemp
 {
@@ -10,6 +11,18 @@ namespace RCTemp
         private static readonly string[] AllowedExt = { ".pdf", ".doc", ".docx" };
         private const int MaxBytes = 4 * 1024 * 1024;
 
+        protected TextBox txtTitle;
+        protected TextBox txtLocation;
+        protected TextBox txtType;
+        protected FileUpload fuResume;
+        protected Button btnSubmit;
+        protected HiddenField hfJobId;
+        protected TextBox txtName;
+        protected TextBox txtEmail;
+        protected TextBox txtPhone;
+        protected DropDownList ddlJob;
+        protected Label lblResult;
+        protected Label lblUploadError;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

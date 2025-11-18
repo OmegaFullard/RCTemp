@@ -41,11 +41,11 @@ namespace RCTemp
             doc.Info.Title = "Skills Tests - Royal City Temporary Agency";
 
             // fonts
-            XFont titleFont = new XFont("Verdana", 20, XFontStyle.Bold);
-            XFont subtitleFont = new XFont("Verdana", 12, XFontStyle.Regular);
-            XFont headerFont = new XFont("Verdana", 12, XFontStyle.Bold);
-            XFont bodyFont = new XFont("Verdana", 10, XFontStyle.Regular);
-            XFont footerFont = new XFont("Verdana", 8, XFontStyle.Regular);
+            XFont titleFont = new XFont("Verdana", 20, XFontStyleEx.Bold);
+            XFont subtitleFont = new XFont("Verdana", 12, XFontStyleEx.Regular);
+            XFont headerFont = new XFont("Verdana", 12, XFontStyleEx.Bold);
+            XFont bodyFont = new XFont("Verdana", 10, XFontStyleEx.Regular);
+            XFont footerFont = new XFont("Verdana", 8, XFontStyleEx.Regular);
 
             // Candidate instructions (cover page)
             string instructions = "Candidate instructions:\n\n" +

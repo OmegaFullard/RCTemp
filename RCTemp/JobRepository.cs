@@ -20,11 +20,28 @@ namespace RCTemp
         public bool IsActive { get; set; }
     }
 
+    public class SavedSearch
+    {
+        public int Id { get; set; }
+        public string SearchName { get; set; }
+        public string Query { get; set; }
+        public DateTime CreatedDate { get; set; }
+    }
+
+    public class JobAlert
+    {
+        public int Id { get; set; }
+        public int JobId { get; set; }
+        public string UserId { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public bool IsActive { get; set; }
+    }
+
     public static class JobRepository
     {
         private static readonly List<Job> _jobs;
-        private static readonly Dictionary<string, List<SavedSearch>> _savedSearchesByUser = new Dictionary<string, List<SavedSearch>>(StringComparer.OrdinalIgnoreCase);
-        private static readonly Dictionary<string, List<JobAlert>> _alertsByUser = new Dictionary<string, List<JobAlert>>(StringComparer.OrdinalIgnoreCase);
+        // private static readonly Dictionary<string, List<SavedSearch>> _savedSearchesByUser = new Dictionary<string, List<SavedSearch>>(StringComparer.OrdinalIgnoreCase);
+        // private static readonly Dictionary<string, List<JobAlert>> _alertsByUser = new Dictionary<string, List<JobAlert>>(StringComparer.OrdinalIgnoreCase);
         private static int _nextSavedSearchId = 1;
         private static int _nextAlertId = 1;
         private static string GetConnectionString()
@@ -33,6 +50,8 @@ namespace RCTemp
             if (cs == null) throw new InvalidOperationException("Connection string 'RCTempConnection' not found.");
             return cs.ConnectionString;
         }
+
+       
 
         public static int InsertApplication(Application application)
         {
