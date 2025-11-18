@@ -17,6 +17,5 @@
             <li>Customer service scenario (behavioral)</li>
         </ul>
 
-        <p class="text-muted" style="font-size:.9rem;">Note: Install <strong>PdfSharp</strong> via NuGet in the web project before using this feature.</p>
     </div>
 </asp:Content>

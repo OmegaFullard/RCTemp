@@ -61,7 +61,7 @@ namespace RCTemp
                     Location = "Royal City, PA",
                     Phone = "(555) 555-1212",
                     Email = "Nicole.Rappenport@royalcitytemps.com",
-                    PhotoUrl = VirtualPaths.EmployeePhoto("images/nicole.png"),
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/nicole.jpg"),
                     Bio = "Nicole manages long-term client relationships and onboarding."
                 },
                 new Employee

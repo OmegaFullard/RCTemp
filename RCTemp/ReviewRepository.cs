@@ -24,7 +24,7 @@ namespace RCTemp
 
     public static class ReviewRepository
     {
-        private static string Conn => ConfigurationManager.ConnectionStrings["RCTempConnection"].ConnectionString;
+        private static string Conn => ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString;
 
         public static int Insert(ResumeReview r)
         {

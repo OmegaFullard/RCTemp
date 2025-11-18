@@ -6,6 +6,7 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
 
+
 namespace RCTemp
 {
     public partial class SkillsTests : Page
@@ -40,11 +41,16 @@ namespace RCTemp
             var doc = new PdfDocument();
             doc.Info.Title = "Skills Tests - Royal City Temporary Agency";
 
+            //font selections
+
+            var myFont = new XFont("Sans-serif", 10, XFontStyleEx.Regular);
+            var myBoldFont = new XFont("Sans-serif", 10, XFontStyleEx.Bold);
+
             // fonts
             XFont titleFont = new XFont("Verdana", 20, XFontStyleEx.Bold);
             XFont subtitleFont = new XFont("Verdana", 12, XFontStyleEx.Regular);
             XFont headerFont = new XFont("Verdana", 12, XFontStyleEx.Bold);
-            XFont bodyFont = new XFont("Verdana", 10, XFontStyleEx.Regular);
+            XFont bodyFont = new XFont("Verdama", 10, XFontStyleEx.Regular);
             XFont footerFont = new XFont("Verdana", 8, XFontStyleEx.Regular);
 
             // Candidate instructions (cover page)

@@ -125,9 +125,10 @@
 
                                                      <asp:MenuItem Text="Client Portal">
    
-  
+   <asp:MenuItem Text= "Login" NavigateUrl="Login.aspx"></asp:MenuItem>
+<asp:MenuItem Text= "Register" NavigateUrl="Register.aspx"></asp:MenuItem>
   <asp:MenuItem Text= "Resources" NavigateUrl="ClientResources.aspx"></asp:MenuItem>
-  <asp:MenuItem Text= "Skills Test" NavigateUrl="SkillsTest.aspx"></asp:MenuItem>
+  <asp:MenuItem Text= "Skills Test" NavigateUrl="SkillsTests.aspx"></asp:MenuItem>
 <asp:MenuItem Text= "Apply" NavigateUrl="Apply.aspx"></asp:MenuItem>
 
 
@@ -137,8 +138,8 @@
                                   <asp:MenuItem Text="Admin Portal">
    
   
-  <asp:MenuItem Text= "Login" NavigateUrl="sign-in.aspx"></asp:MenuItem>
- <asp:MenuItem Text= "Register" NavigateUrl="sign-up.aspx"></asp:MenuItem>
+  <asp:MenuItem Text= "Login" NavigateUrl="Login.aspx"></asp:MenuItem>
+ <asp:MenuItem Text= "Register" NavigateUrl="Register.aspx"></asp:MenuItem>
   <asp:MenuItem Text= "Job Edit" NavigateUrl="JobEdit.aspx"></asp:MenuItem>
 <asp:MenuItem Text= "Resume Reviews" NavigateUrl="ResumeReview.aspx"></asp:MenuItem>
 <asp:MenuItem Text= "Admin Reviews" NavigateUrl="AdminReviews.aspx"></asp:MenuItem>

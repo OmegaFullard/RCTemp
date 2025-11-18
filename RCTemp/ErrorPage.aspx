@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ErrorPage.aspx.cs" Inherits="RCTemp.ErrorPage" %>
 
-asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
             </asp:Content>
            <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder2" >
               <div aria-dropeffect="move" style="padding-left:30px; padding-right:10px; height:500px;overflow: auto; background:rgba(236, 236, 236, 1);">    

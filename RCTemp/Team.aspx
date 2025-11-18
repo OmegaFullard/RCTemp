@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Team.aspx.cs" Inherits="RCTemp.Team" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Team.aspx.cs"  Inherits="RCTemp.Team" %>
 
 <!DOCTYPE html>
 
@@ -54,6 +54,11 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
+                <br />
+        <br />
+<div>
+        <a href="Default.aspx"><< Back to Home</a><br />
+    </div>
     </form>
 </body>
 </html>
