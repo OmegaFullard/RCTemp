@@ -31,39 +31,100 @@ namespace RCTemp
                 new Employee
                 {
                     EmployeeId = 1,
-                    FirstName = "Samantha",
-                    LastName = "Reed",
+                    FirstName = "Lola",
+                    LastName = "James",
                     Title = "Director of Operations",
-                    Location = "Royal City, WA",
+                    Location = "Downtown Royal City, PA",
                     Phone = "(555) 123-4567",
-                    Email = "samantha.reed@royalcitytemps.com",
-                    PhotoUrl = VirtualPaths.EmployeePhoto("images/Employee2.png"),
-                    Bio = "Samantha leads client operations and ensures placements meet expectations."
+                    Email = "Lola.James@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/lola.png"),
+                    Bio = "Lola leads client operations and ensures placements meet expectations."
                 },
                 new Employee
                 {
                     EmployeeId = 2,
-                    FirstName = "Marcus",
-                    LastName = "Brown",
+                    FirstName = "Bill",
+                    LastName = "Gully",
                     Title = "Senior Recruiter",
-                    Location = "Seattle, WA",
+                    Location = "Downtown Royal City, PA",
                     Phone = "(555) 987-6543",
-                    Email = "marcus.brown@royalcitytemps.com",
-                    PhotoUrl = VirtualPaths.EmployeePhoto("images/employee-placeholder.png"),
-                    Bio = "Marcus specializes in IT and engineering recruitment."
+                    Email = "Bill.Gully@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/bill.png"),
+                    Bio = "Bill specializes in IT and engineering recruitment."
                 },
                 new Employee
                 {
                     EmployeeId = 3,
-                    FirstName = "Aisha",
-                    LastName = "Patel",
+                    FirstName = "Nicole",
+                    LastName = "Rappenport",
                     Title = "Client Success Manager",
-                    Location = "Spokane, WA",
+                    Location = "Royal City, PA",
                     Phone = "(555) 555-1212",
-                    Email = "aisha.patel@royalcitytemps.com",
-                    PhotoUrl = VirtualPaths.EmployeePhoto("images/employee-placeholder.png"),
-                    Bio = "Aisha manages long-term client relationships and onboarding."
+                    Email = "Nicole.Rappenport@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/nicole.png"),
+                    Bio = "Nicole manages long-term client relationships and onboarding."
                 },
+                new Employee
+                {
+                    EmployeeId = 4,
+                    FirstName = "Jessie",
+                    LastName = "Baker",
+                    Title = "Director of Operations",
+                    Location = "Midtown Royal City, PA",
+                    Phone = "(555) 123-4567",
+                    Email = "Jessie.Baker@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/jessie.png"),
+                    Bio = "Jessie leads client operations and ensures placements meet expectations."
+                },
+                new Employee
+                {
+                    EmployeeId = 5,
+                    FirstName = "Lilith",
+                    LastName = "Carlton",
+                    Title = "Senior IT Recruiter",
+                    Location = "Midtown Royal City, PA",
+                    Phone = "(555) 987-6543",
+                    Email = "Lilith.Carlton@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/lilith.png"),
+                    Bio = "Lilith specializes in IT and engineering recruitment."
+                },
+                new Employee
+                {
+                    EmployeeId = 6,
+                    FirstName = "Kannady",
+                    LastName = "Linberg",
+                    Title = "Client Success Manager",
+                    Location = "Royal City, PA",
+                    Phone = "(555) 555-1212",
+                    Email = "Kannady.Linberg@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/kannady.png"),
+                    Bio = "Kannady manages long-term client relationships and onboarding."
+                },
+
+                new Employee
+                {
+                    EmployeeId = 7,
+                    FirstName = "Skylar",
+                    LastName = "Olstein",
+                    Title = "Talent Success Manager",
+                    Location = "Uptown Royal City, PA",
+                    Phone = "(555) 123-4567",
+                    Email = "Skylar.Olstein@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/skylar.png"),
+                    Bio = "Skylar prepares candidates through resume review, testing, and interview prep."
+                },
+                new Employee
+                {
+                    EmployeeId = 8,
+                    FirstName = "Adam",
+                    LastName = "Black",
+                    Title = "Director of Sales and Marketing",
+                    Location = "Midtown Royal City, PA",
+                    Phone = "(555) 987-6543",
+                    Email = "Adam.Black@royalcitytemps.com",
+                    PhotoUrl = VirtualPaths.EmployeePhoto("images/adam.png"),
+                    Bio = "Marcus specializes in advertisement and marketing strategies."
+                },                
             };
         }
 
