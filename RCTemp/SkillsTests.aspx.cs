@@ -5,6 +5,8 @@ using System.Web.UI;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
+using PdfSharp.Fonts;
+using RCTemp.PdfFonts;
 
 
 namespace RCTemp
@@ -37,6 +39,10 @@ namespace RCTemp
 
         private MemoryStream GeneratePdf()
         {
+            // Ensure resolver is registered before creating any XFont/XGraphics
+            if (GlobalFontSettings.FontResolver == null)
+                GlobalFontSettings.FontResolver = new SimpleFontResolver();
+
             var stream = new MemoryStream();
             var doc = new PdfDocument();
             doc.Info.Title = "Skills Tests - Royal City Temporary Agency";
@@ -199,6 +205,25 @@ namespace RCTemp
             doc.Save(stream, false);
             stream.Position = 0;
             return stream;
+        }
+
+        public byte[] GetFont(string faceName)
+        {
+            string fileName;
+            if (faceName == "Arial#Regular")
+                fileName = "arial.ttf";
+            else if (faceName == "Arial#Bold")
+                fileName = "arialbd.ttf";
+            else if (faceName == "Arial#Italic")
+                fileName = "ariali.ttf";
+            else if (faceName == "Arial#BoldItalic")
+                fileName = "arialbi.ttf";
+            else
+                throw new FileNotFoundException($"No font mapping for face '{faceName}'.");
+            var fontPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fonts", fileName);
+            if (!File.Exists(fontPath))
+                throw new FileNotFoundException($"Font file not found: {fontPath}");
+            return File.ReadAllBytes(fontPath);
         }
     }
 }
