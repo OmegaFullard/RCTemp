@@ -12,7 +12,7 @@ namespace RCTemp.PdfFonts
     //   arial.ttf, arialbd.ttf, ariali.ttf, arialbi.ttf
     //
     // Register before creating any PDF fonts:
-    //   GlobalFontSettings.FontResolver = new SimpleFontResolver();
+    //  GlobalFontSettings.FontResolver = new SimpleFontResolver();
     public class SimpleFontResolver : IFontResolver
     {
         public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)

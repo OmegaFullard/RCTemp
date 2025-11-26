@@ -6,9 +6,12 @@
         <p>Download a printable PDF with example skills tests for screening candidates.</p>
 
         <div class="mb-3">
-            <asp:Button ID="btnDownload" runat="server" CssClass="btn btn-primary" Text="Download Skills Tests PDF" OnClick="btnDownload_Click" />
+            <asp:Button ID="btnDownload" runat="server" CssClass="btn btn-primary" Text="Download Skills Tests PDF" onclick="btnDownload_Click" />
         </div>
-
+          <!-- Status label for showing generation/download errors or messages -->
+  <div class="mb-2">
+      <asp:Label ID="lblStatus" runat="server" CssClass="text-danger" />
+  </div>
         <h4>Included tests</h4>
         <ul>
             <li>Math aptitude (word problems)</li>
