@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,13 +7,6 @@ namespace RCTemp
 {
     public partial class Jobs : System.Web.UI.Page
     {
-        protected TextBox txtTitle;
-        protected TextBox txtLocation;
-        protected TextBox txtType;
-        protected DropDownList ddlPageSize;
-        protected GridView grdJobs;
-        protected Label lblResults;
-
         private int PageIndex => ParseInt(Request.QueryString["page"], 1);
         private int PageSize => ParseInt(Request.QueryString["pagesize"], 10);
         private string TitleFilter => Request.QueryString["title"] ?? string.Empty;
@@ -26,11 +18,6 @@ namespace RCTemp
             if (!IsPostBack)
             {
                 // initialize form controls from querystring
-                txtTitle.Text = TitleFilter;
-                txtLocation.Text = LocationFilter;
-                txtType.Text = TypeFilter;
-                ddlPageSize.SelectedValue = PageSize.ToString();
-
                 BindJobs(PageIndex);
             }
         }
@@ -42,7 +29,7 @@ namespace RCTemp
             if (!string.IsNullOrWhiteSpace(txtTitle.Text)) qs["title"] = txtTitle.Text.Trim();
             if (!string.IsNullOrWhiteSpace(txtLocation.Text)) qs["location"] = txtLocation.Text.Trim();
             if (!string.IsNullOrWhiteSpace(txtType.Text)) qs["type"] = txtType.Text.Trim();
-            qs["pagesize"] = ddlPageSize.SelectedValue;
+            qs["pagesize"] = (ddlPageSize != null) ? ddlPageSize.SelectedValue : PageSize.ToString();
             qs["page"] = "1";
             Response.Redirect("Jobs.aspx?" + qs.ToString());
         }
@@ -52,10 +39,16 @@ namespace RCTemp
             int total;
             var jobs = JobRepository.GetPaged(TitleFilter, LocationFilter, TypeFilter, page, PageSize, out total);
 
-            grdJobs.DataSource = jobs;
-            grdJobs.DataBind();
+            if (grdJobs != null)
+            {
+                grdJobs.DataSource = jobs;
+                grdJobs.DataBind();
+            }
 
-            lblResults.Text = $"Showing page {page} of {Math.Max(1, (int)Math.Ceiling(total / (double)PageSize))} — {total} job(s) total";
+            if (lblResults != null)
+            {
+                lblResults.Text = $"Showing page {page} of {Math.Max(1, (int)Math.Ceiling(total / (double)PageSize))} — {total} job(s) total";
+            }
 
             RenderPager(total, page, PageSize);
         }
@@ -105,7 +98,7 @@ namespace RCTemp
             if (!string.IsNullOrWhiteSpace(TitleFilter)) qs["title"] = TitleFilter;
             if (!string.IsNullOrWhiteSpace(LocationFilter)) qs["location"] = LocationFilter;
             if (!string.IsNullOrWhiteSpace(TypeFilter)) qs["type"] = TypeFilter;
-            qs["pagesize"] = ddlPageSize.SelectedValue;
+            qs["pagesize"] = (ddlPageSize != null) ? ddlPageSize.SelectedValue : PageSize.ToString();
             qs["page"] = page.ToString();
             return "Jobs.aspx?" + qs.ToString();
         }

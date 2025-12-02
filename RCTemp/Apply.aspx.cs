@@ -42,7 +42,7 @@ namespace RCTemp
                 else
                 {
                     // No job selected — redirect back to jobs list
-                    Response.Redirect("Jobs.aspx");
+                   // Response.Redirect("Jobs.aspx");
                 }
             }
         }
