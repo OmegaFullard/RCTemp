@@ -1,49 +1,67 @@
 <%@ Page Title="Apply" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Apply.aspx.cs" Inherits="RCTemp.Apply" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container" style="max-width:700px;margin-top:24px;">
+    <div class="container" style="max-width:800px;margin-top:24px;">
         <h2>Apply for Job</h2>
 
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger" />
+        <asp:Panel ID="pnlSearch" runat="server" CssClass="card p-3 mb-3">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <asp:TextBox ID="txtSearchTitle" runat="server" CssClass="form-control" Placeholder="Title" />
+                </div>
+                <div class="form-group col-md-4">
+                    <asp:TextBox ID="txtSearchLocation" runat="server" CssClass="form-control" Placeholder="Location" />
+                </div>
+                <div class="form-group col-md-2">
+                    <asp:Button ID="btnSearchJobs" runat="server" CssClass="btn btn-primary" Text="Search Jobs" OnClick="btnSearchJobs_Click" />
+                </div>
+            </div>
 
-        <asp:HiddenField ID="hfJobId" runat="server" />
+            <asp:GridView ID="grdSearchResults" runat="server" AutoGenerateColumns="False" CssClass="table table-striped mt-3" OnRowCommand="grdSearchResults_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="JobId" HeaderText="ID" />
+                    <asp:BoundField DataField="Title" HeaderText="Title" />
+                    <asp:BoundField DataField="Location" HeaderText="Location" />
+                    <asp:BoundField DataField="EmploymentType" HeaderText="Type" />
+                    <asp:BoundField DataField="PostedDate" HeaderText="Posted" DataFormatString="{0:yyyy-MM-dd}" />
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" CommandName="SelectJob" CommandArgument='<%# Eval("JobId") %>' CssClass="btn btn-sm btn-outline-primary">Apply</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </asp:Panel>
 
-        <div class="mb-3">
-            <label class="form-label">Full name</label>
-            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" />
-            <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Name required" CssClass="text-danger" Display="Dynamic" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" />
-            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email required" CssClass="text-danger" Display="Dynamic" />
-            <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" CssClass="text-danger" Display="Dynamic"
-                ValidationExpression="^\S+@\S+\.\S+$" ErrorMessage="Invalid email" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Phone (optional)</label>
-            <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Cover letter (optional)</label>
-            <asp:TextBox ID="txtCover" runat="server" TextMode="MultiLine" Rows="6" CssClass="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Upload resume (PDF, DOC, DOCX) — max 4 MB</label>
-            <asp:FileUpload ID="fuResume" runat="server" CssClass="form-control" />
-            <asp:RequiredFieldValidator ID="rfvResume" runat="server" ControlToValidate="fuResume" InitialValue="" ErrorMessage="Resume is required" CssClass="text-danger" Display="Dynamic" />
-            <asp:Label ID="lblUploadError" runat="server" CssClass="text-danger" />
-        </div>
-
-        <div class="d-flex gap-2">
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit Application" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
-            <a class="btn btn-secondary" href="Jobs.aspx">Back to jobs</a>
-        </div>
-
-        <asp:Label ID="lblResult" runat="server" CssClass="text-success" />
+        <asp:Panel ID="pnlApply" runat="server" CssClass="card p-3" Visible="false">
+            <asp:HiddenField ID="hfJobId" runat="server" />
+            <div class="form-group">
+                <asp:Label ID="lblJobTitle" runat="server" CssClass="font-weight-bold" />
+            </div>
+            <div class="form-group">
+                <asp:Label ID="lblUploadError" runat="server" CssClass="text-danger" />
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control" Placeholder="Full name" />
+                </div>
+                <div class="form-group col-md-6">
+                    <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" Placeholder="Email" />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control" Placeholder="Phone" />
+            </div>
+            <div class="form-group">
+                <asp:TextBox ID="txtCover" runat="server" CssClass="form-control" Placeholder="Cover letter" TextMode="MultiLine" Rows="6" />
+            </div>
+            <div class="form-group">
+                <asp:FileUpload ID="fuResume" runat="server" CssClass="form-control-file" />
+            </div>
+            <div class="form-group">
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Submit Application" OnClick="btnSubmit_Click" />
+                &nbsp; <asp:Label ID="lblResult" runat="server" CssClass="text-success" />
+            </div>
+        </asp:Panel>
     </div>
 </asp:Content>
