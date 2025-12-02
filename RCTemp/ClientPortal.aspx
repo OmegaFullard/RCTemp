@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container" style="max-width:1000px;margin-top:24px;">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Client Portal — Job Search</h2>
+            <h2>Client Portal - Job Search</h2>
             <a class="btn btn-secondary" href="Jobs.aspx">Employer View</a>
         </div>
 
@@ -35,7 +35,7 @@
         </div>
 
         <asp:GridView ID="grdClientJobs" runat="server" AutoGenerateColumns="False" CssClass="table table-hover"
-            EmptyDataText="No jobs match your search." DataSourceID="SqlDataSource1" AllowPaging="True">
+            EmptyDataText="No jobs match your search." AllowPaging="True">
             <columns>
                 <asp:BoundField DataField="JobId" HeaderText="ID" ItemStyle-Width="60px" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
@@ -43,16 +43,15 @@
                 <asp:BoundField DataField="EmploymentType" HeaderText="Type" />
                 <asp:BoundField DataField="PostedDate" HeaderText="Posted" DataFormatString="{0:yyyy-MM-dd}" ItemStyle-Width="120px" />
                 <asp:TemplateField HeaderText="Actions" ItemStyle-Width="220px">
-                    <itemtemplate>
+                    <ItemTemplate>
                         <a class="btn btn-sm btn-outline-success" href='JobDetails.aspx?id=<%# Eval("JobId") %>'>View</a>
                         &nbsp;
                         <a class="btn btn-sm btn-primary" href='Apply.aspx?id=<%# Eval("JobId") %>'>Apply</a>
-                    </itemtemplate>
+                    </ItemTemplate>
                 </asp:TemplateField>
             </columns>
         </asp:GridView>
 
-        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="Data Source=OIT-L-BY10S73\SQLEXPRESS2019;Initial Catalog=RCTemp;Integrated Security=True;Trust Server Certificate=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Jobs]"></asp:SqlDataSource>
         <nav aria-label="Client job pages" class="mt-3">
             <ul runat="server" id="pagerClient" class="pagination"></ul>
         </nav>
