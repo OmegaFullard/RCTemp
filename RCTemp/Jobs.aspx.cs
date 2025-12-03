@@ -7,6 +7,12 @@ namespace RCTemp
 {
     public partial class Jobs : System.Web.UI.Page
     {
+        protected TextBox txtTitle;
+        protected TextBox txtLocation;
+        protected TextBox txtType;
+        protected DropDownList ddlPageSize;
+        //protected GridView grdJobs;
+        //protected Label lblResults;
         private int PageIndex => ParseInt(Request.QueryString["page"], 1);
         private int PageSize => ParseInt(Request.QueryString["pagesize"], 10);
         private string TitleFilter => Request.QueryString["title"] ?? string.Empty;
@@ -18,6 +24,10 @@ namespace RCTemp
             if (!IsPostBack)
             {
                 // initialize form controls from querystring
+                txtTitle.Text = TitleFilter;
+                txtLocation.Text = LocationFilter;
+                txtType.Text = TypeFilter;
+                ddlPageSize.SelectedValue = PageSize.ToString();
                 BindJobs(PageIndex);
             }
         }

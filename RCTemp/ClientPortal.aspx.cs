@@ -15,7 +15,7 @@ namespace RCTemp
         private string LocationFilter => Request.QueryString["location"] ?? string.Empty;
         private string TypeFilter => Request.QueryString["type"] ?? string.Empty;
 
-        public HtmlGenericControl pagerClient { get; private set; }
+        protected HtmlGenericControl pagerClient;
 
         protected TextBox txtTitle;
         protected TextBox txtLocation;

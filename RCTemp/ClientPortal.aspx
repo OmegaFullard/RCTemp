@@ -7,7 +7,8 @@
             <a class="btn btn-secondary" href="Jobs.aspx">Employer View</a>
         </div>
 
-        <form runat="server" class="mb-3">
+        <!-- Use a non-server container here because the master page already provides a server-side form -->
+        <div class="mb-3">
             <div class="row g-2">
                 <div class="col-md-4">
                     <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" Placeholder="Job title or keywords" />
@@ -28,15 +29,25 @@
                     <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
                 </div>
             </div>
-        </form>
+        </div>
 
         <div class="mb-2">
             <asp:Label ID="lblResults" runat="server" />
         </div>
 
         <asp:GridView ID="grdClientJobs" runat="server" AutoGenerateColumns="False" CssClass="table table-hover"
-            EmptyDataText="No jobs match your search." AllowPaging="True">
-            <columns>
+            EmptyDataText="No jobs match your search." AllowPaging="True" DataKeyNames="JobId" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="JobId" HeaderText="JobId" ReadOnly="True" InsertVisible="False" SortExpression="JobId"></asp:BoundField>
+                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"></asp:BoundField>
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description"></asp:BoundField>
+                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"></asp:BoundField>
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description"></asp:BoundField>
+                <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location"></asp:BoundField>
+                <asp:BoundField DataField="EmploymentType" HeaderText="EmploymentType" SortExpression="EmploymentType"></asp:BoundField>
+                <asp:BoundField DataField="PostedDate" HeaderText="PostedDate" SortExpression="PostedDate"></asp:BoundField>
+            </Columns>
+            <Columns>
                 <asp:BoundField DataField="JobId" HeaderText="ID" ItemStyle-Width="60px" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
                 <asp:BoundField DataField="Location" HeaderText="Location" />
@@ -49,9 +60,10 @@
                         <a class="btn btn-sm btn-primary" href='Apply.aspx?id=<%# Eval("JobId") %>'>Apply</a>
                     </ItemTemplate>
                 </asp:TemplateField>
-            </columns>
+            </Columns>
         </asp:GridView>
 
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:RCTempConnection %>' SelectCommand="SELECT * FROM [Jobs]"></asp:SqlDataSource>
         <nav aria-label="Client job pages" class="mt-3">
             <ul runat="server" id="pagerClient" class="pagination"></ul>
         </nav>

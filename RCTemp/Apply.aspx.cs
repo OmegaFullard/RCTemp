@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.IO;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +13,7 @@ namespace RCTemp
         private const int MaxFileBytes = 4 * 1024 * 1024;
 
         // Control accessors that search the page markup if designer fields are missing.
-        //private HiddenField hfJobId => FindControlRecursive(Page, "hfJobId") as HiddenField;
+        private HiddenField hfJobId => FindControlRecursive(Page, "hfJobId") as HiddenField;
         //private Label lblUploadError => FindControlRecursive(Page, "lblUploadError") as Label;
         //private Label lblResult => FindControlRecursive(Page, "lblResult") as Label;
         //private FileUpload fuResume => FindControlRecursive(Page, "fuResume") as FileUpload;
@@ -49,12 +49,12 @@ namespace RCTemp
                     }
 
                     // If a job id was passed via querystring, show the apply panel and populate title if possible.
-                    ShowApplyForJob(id);
+                    //ShowApplyForJob(id);
                 }
                 else
                 {
-                    // No job selected — keep search visible, apply panel hidden
-                    if (pnlApply != null) pnlApply.Visible = false;
+                     //No job selected ï¿½ redirect back to jobs list
+                 Response.Redirect("Jobs.aspx");
                 }
             }
         }
@@ -77,42 +77,42 @@ namespace RCTemp
             }
 
             // Ensure the apply panel is hidden until a job is selected
-            if (pnlApply != null) pnlApply.Visible = false;
+            //if (pnlApply != null) pnlApply.Visible = false;
         }
 
         // Handle the Apply link in search results - show the apply form for the selected job
-        protected void grdSearchResults_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "SelectJob")
-            {
-                if (!int.TryParse(e.CommandArgument?.ToString(), out int jobId) || jobId <= 0) return;
+        //protected void grdSearchResults_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "SelectJob")
+        //    {
+        //        if (!int.TryParse(e.CommandArgument?.ToString(), out int jobId) || jobId <= 0) return;
 
-                string jobTitle = null;
-                // Try to extract title from the row that raised the command
-                if (e.CommandSource is Control src)
-                {
-                    var row = src.NamingContainer as GridViewRow;
-                    if (row != null)
-                    {
-                        // Column layout: 0=JobId, 1=Title, ...
-                        if (row.Cells.Count > 1) jobTitle = row.Cells[1].Text;
-                    }
-                }
+        //        string jobTitle = null;
+        //        // Try to extract title from the row that raised the command
+        //        if (e.CommandSource is Control src)
+        //        {
+        //            var row = src.NamingContainer as GridViewRow;
+        //            if (row != null)
+        //            {
+        //                // Column layout: 0=JobId, 1=Title, ...
+        //                if (row.Cells.Count > 1) jobTitle = row.Cells[1].Text;
+        //            }
+        //        }
 
-                // Set hidden field or ViewState fallback
-                if (this.hfJobId != null) this.hfJobId.Value = jobId.ToString();
-                else ViewState["JobId"] = jobId.ToString();
+        //        // Set hidden field or ViewState fallback
+        //        if (this.hfJobId != null) this.hfJobId.Value = jobId.ToString();
+        //        else ViewState["JobId"] = jobId.ToString();
 
-                // Populate job title label
-                if (lblJobTitle != null)
-                {
-                    lblJobTitle.Text = !string.IsNullOrEmpty(jobTitle) ? HttpUtility.HtmlEncode(jobTitle) : $"Job #{jobId}";
-                }
+        //        // Populate job title label
+        //       // if (lblJobTitle != null)
+        //       // {
+        //            //lblJobTitle.Text = !string.IsNullOrEmpty(jobTitle) ? HttpUtility.HtmlEncode(jobTitle) : $"Job #{jobId}";
+        //        //}
 
-                // Show apply panel
-                if (pnlApply != null) pnlApply.Visible = true;
-            }
-        }
+        //        // Show apply panel
+        //       //if (pnlApply != null) pnlApply.Visible = true;
+        //    }
+        //}
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -197,31 +197,31 @@ namespace RCTemp
             }
         }
 
-        // Show apply panel and populate title if possible (used on Page_Load when ?id=... is provided)
-        private void ShowApplyForJob(int jobId)
-        {
-            string title = null;
+        //// Show apply panel and populate title if possible (used on Page_Load when ?id=... is provided)
+        //private void ShowApplyForJob(int jobId)
+        //{
+        //    string title = null;
 
-            // Attempt to retrieve title via repository if such method exists — guarded by try/catch to avoid compile-time assumptions.
-            try
-            {
-                // If the repository exposes a Get(int) or GetById, uncomment and use it:
-                // var job = JobRepository.Get(jobId);
-                // if (job != null) title = job.Title;
+        //    // Attempt to retrieve title via repository if such method exists â€” guarded by try/catch to avoid compile-time assumptions.
+        //    try
+        //    {
+        //        // If the repository exposes a Get(int) or GetById, uncomment and use it:
+        //         var job = JobRepository.GetById(jobId);
+        //         if (job != null) title = job.Title;
 
-                // Fallback: use a generic label if repository lookup isn't available
-            }
-            catch
-            {
-                // ignore and fallback
-            }
+        //        // Fallback: use a generic label if repository lookup isn't available
+        //    }
+        //    catch
+        //    {
+        //        // ignore and fallback
+        //    }
 
-            if (hfJobId != null) hfJobId.Value = jobId.ToString();
-            else ViewState["JobId"] = jobId.ToString();
+        //    if (hfJobId != null) hfJobId.Value = jobId.ToString();
+        //    else ViewState["JobId"] = jobId.ToString();
 
-            if (lblJobTitle != null) lblJobTitle.Text = !string.IsNullOrEmpty(title) ? HttpUtility.HtmlEncode(title) : $"Job #{jobId}";
-            if (pnlApply != null) pnlApply.Visible = true;
-        }
+        //    if (lblJobTitle != null) lblJobTitle.Text = !string.IsNullOrEmpty(title) ? HttpUtility.HtmlEncode(title) : $"Job #{jobId}";
+        //    if (pnlApply != null) pnlApply.Visible = true;
+        //}
 
         // Recursive control finder to avoid missing-designer-field compilation errors
         private static Control FindControlRecursive(Control root, string id)
