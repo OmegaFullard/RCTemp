@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 
 namespace RCTemp
 {
@@ -60,6 +61,58 @@ namespace RCTemp
 
             RenderPager(total, page, PageSize);
         }
+
+        //private void BindSavedSearches()
+        //{
+        //    if (!User?.Identity?.IsAuthenticated ?? true)
+        //    {
+        //        grdSavedSearches.DataSource = new List<SavedSearch>();
+        //        grdSavedSearches.DataBind();
+        //        return;
+        //    }
+
+        //    var list = JobRepository.GetSavedSearches(User.Identity.Name);
+        //    grdSavedSearches.DataSource = list;
+        //    grdSavedSearches.DataBind();
+        //}
+
+        //protected void grdSavedSearches_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "Load")
+        //    {
+        //        if (int.TryParse(e.CommandArgument.ToString(), out int id))
+        //        {
+        //            var list = JobRepository.GetSavedSearches(User.Identity.Name);
+        //            var s = list.Find(x => x.SavedSearchId == id);
+        //            if (s != null)
+        //            {
+        //                var qs = HttpUtility.ParseQueryString(string.Empty);
+        //                if (!string.IsNullOrWhiteSpace(s.TitleFilter)) qs["title"] = s.TitleFilter;
+        //                if (!string.IsNullOrWhiteSpace(s.LocationFilter)) qs["location"] = s.LocationFilter;
+        //                if (!string.IsNullOrWhiteSpace(s.TypeFilter)) qs["type"] = s.TypeFilter;
+        //                if (!string.IsNullOrWhiteSpace(s.CompanyFilter)) qs["company"] = s.CompanyFilter;
+        //                qs["pagesize"] = ddlPageSize.SelectedValue;
+        //                qs["page"] = "1";
+        //                Response.Redirect("ClientPortal.aspx?" + qs.ToString());
+        //            }
+        //        }
+        //    }
+        //    else if (e.CommandName == "Delete")
+        //    {
+        //        if (!User?.Identity?.IsAuthenticated ?? true)
+        //        {
+        //            Response.Redirect("Login.aspx?ReturnUrl=" + Server.UrlEncode(Request.RawUrl));
+        //            return;
+        //        }
+
+        //        if (int.TryParse(e.CommandArgument.ToString(), out int id))
+        //        {
+        //            JobRepository.DeleteSavedSearch(id, User.Identity.Name);
+        //            BindSavedSearches();
+        //        }
+        //    }
+        //}
+
 
         private void RenderPager(int totalItems, int currentPage, int pageSize)
         {

@@ -36,17 +36,8 @@
         </div>
 
         <asp:GridView ID="grdClientJobs" runat="server" AutoGenerateColumns="False" CssClass="table table-hover"
-            EmptyDataText="No jobs match your search." AllowPaging="True" DataKeyNames="JobId" DataSourceID="SqlDataSource1">
-            <Columns>
-                <asp:BoundField DataField="JobId" HeaderText="JobId" ReadOnly="True" InsertVisible="False" SortExpression="JobId"></asp:BoundField>
-                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"></asp:BoundField>
-                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description"></asp:BoundField>
-                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title"></asp:BoundField>
-                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description"></asp:BoundField>
-                <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location"></asp:BoundField>
-                <asp:BoundField DataField="EmploymentType" HeaderText="EmploymentType" SortExpression="EmploymentType"></asp:BoundField>
-                <asp:BoundField DataField="PostedDate" HeaderText="PostedDate" SortExpression="PostedDate"></asp:BoundField>
-            </Columns>
+            EmptyDataText="No jobs match your search." AllowPaging="True" DataKeyNames="JobId">
+            
             <Columns>
                 <asp:BoundField DataField="JobId" HeaderText="ID" ItemStyle-Width="60px" />
                 <asp:BoundField DataField="Title" HeaderText="Title" />
@@ -63,7 +54,7 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:RCTempConnection %>' SelectCommand="SELECT * FROM [Jobs]"></asp:SqlDataSource>
+        
         <nav aria-label="Client job pages" class="mt-3">
             <ul runat="server" id="pagerClient" class="pagination"></ul>
         </nav>
