@@ -81,38 +81,38 @@ namespace RCTemp
         }
 
         // Handle the Apply link in search results - show the apply form for the selected job
-        //protected void grdSearchResults_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "SelectJob")
-        //    {
-        //        if (!int.TryParse(e.CommandArgument?.ToString(), out int jobId) || jobId <= 0) return;
+        protected void grdSearchResults_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "SelectJob")
+            {
+                if (!int.TryParse(e.CommandArgument?.ToString(), out int jobId) || jobId <= 0) return;
 
-        //        string jobTitle = null;
-        //        // Try to extract title from the row that raised the command
-        //        if (e.CommandSource is Control src)
-        //        {
-        //            var row = src.NamingContainer as GridViewRow;
-        //            if (row != null)
-        //            {
-        //                // Column layout: 0=JobId, 1=Title, ...
-        //                if (row.Cells.Count > 1) jobTitle = row.Cells[1].Text;
-        //            }
-        //        }
+                string jobTitle = null;
+                // Try to extract title from the row that raised the command
+                if (e.CommandSource is Control src)
+                {
+                    var row = src.NamingContainer as GridViewRow;
+                    if (row != null)
+                    {
+                        // Column layout: 0=JobId, 1=Title, ...
+                        if (row.Cells.Count > 1) jobTitle = row.Cells[1].Text;
+                    }
+                }
 
-        //        // Set hidden field or ViewState fallback
-        //        if (this.hfJobId != null) this.hfJobId.Value = jobId.ToString();
-        //        else ViewState["JobId"] = jobId.ToString();
+                // Set hidden field or ViewState fallback
+                if (this.hfJobId != null) this.hfJobId.Value = jobId.ToString();
+                else ViewState["JobId"] = jobId.ToString();
 
-        //        // Populate job title label
-        //       // if (lblJobTitle != null)
-        //       // {
-        //            //lblJobTitle.Text = !string.IsNullOrEmpty(jobTitle) ? HttpUtility.HtmlEncode(jobTitle) : $"Job #{jobId}";
-        //        //}
+                // Populate job title label
+                // if (lblJobTitle != null)
+                // {
+                //lblJobTitle.Text = !string.IsNullOrEmpty(jobTitle) ? HttpUtility.HtmlEncode(jobTitle) : $"Job #{jobId}";
+                //}
 
-        //        // Show apply panel
-        //       //if (pnlApply != null) pnlApply.Visible = true;
-        //    }
-        //}
+                // Show apply panel
+                //if (pnlApply != null) pnlApply.Visible = true;
+            }
+        }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
