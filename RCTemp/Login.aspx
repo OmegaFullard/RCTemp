@@ -1,51 +1,39 @@
-<%@ Page Title="Login" Language="C#" AutoEventWireup="true"  CodeBehind="Login.aspx.cs" Inherits="RCTemp.Login" %>
-<!DOCTYPE html>
- <div>
-           <nav class="navbar navbar-light" style="background-color:#a0d9ef">
-               <ul class="nav navbar-nav">
-                   <li><a runat="server" href="~/Default">Home</a></li>
-                   <li><a runat="server" href="~/Services">Services</a></li>
-                   <li><a runat="server" href="~/Contact">Contact</a></li>
-<li><a runat="server" href="~/About">About</a></li>
-<li><a runat="server" href="~/Support">Support</a></li>
+<%@ Page Title="Login" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.cs" Inherits="RCTemp.Login" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-               </ul>
+   <div class="container" style="max-width:420px;margin-top:40px;">
+      
 
-               <br />
-               <br />
-
-           </nav>
-    </div>
-<html>
-
-<head runat="server">
-    <title>Login</title>
-</head>
-<body>
-    <form id="form1" runat="server" class="container" style="max-width:420px;margin-top:40px;">
         <h3>Sign in</h3>
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger" />
+
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger mb-2" />
+
+        <asp:HiddenField ID="hfReturnUrl" runat="server" />
+
         <div class="mb-2">
             <asp:TextBox ID="txtUser" runat="server" CssClass="form-control" Placeholder="Username" />
+            <asp:RequiredFieldValidator ID="rfvUser" runat="server" ControlToValidate="txtUser"
+                ErrorMessage="Username is required." CssClass="text-danger" Display="Dynamic" />
         </div>
+
         <div class="mb-2">
-            <asp:TextBox ID="txtPwd" runat="server" TextMode="Password" runat="server" CssClass="form-control" Placeholder="Password" />
+            <asp:TextBox ID="txtPwd" runat="server" TextMode="Password" CssClass="form-control" Placeholder="Password" />
+            <asp:RequiredFieldValidator ID="rfvPwd" runat="server" ControlToValidate="txtPwd"
+                ErrorMessage="Password is required." CssClass="text-danger" Display="Dynamic" />
         </div>
-        <div class="d-flex gap-2">
+
+        <div class="d-flex gap-2 mb-3">
             <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
-            <a class="btn btn-secondary" href="Default.aspx">Cancel</a>
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnCancel_Click" />
         </div>
+
         <asp:Label ID="lblError" runat="server" CssClass="text-danger" />
-    </form>
 
-    &nbsp;&nbsp; <p>
-              <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled" NavigateUrl="~/Register.aspx">Register</asp:HyperLink>
-     <br />         
-     If you don't have a local account.
-          </p>
-<br />
-<br />
-
-</body>
-</html>
+        <p class="mt-3">
+            <asp:HyperLink runat="server" ID="RegisterHyperLink" NavigateUrl="~/Register.aspx">Register</asp:HyperLink>
+            <br />
+            If you don't have a local account.
+        </p>
+    </div>
+</asp:Content>
