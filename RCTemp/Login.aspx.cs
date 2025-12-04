@@ -12,20 +12,19 @@ namespace RCTemp
         protected CheckBox chkRemember;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // If already authenticated, optionally redirect away
-            if (User?.Identity?.IsAuthenticated ?? false)
-            {
-                // redirect to returnUrl or default landing
-                var returnUrl = Request.QueryString["ReturnUrl"];
-                if (!string.IsNullOrEmpty(returnUrl)) Response.Redirect(returnUrl);
-                else Response.Redirect(User.IsInRole("Admin") ? "AdminReviews.aspx" : "ClientPortal.aspx");
-            }
+            //// If already authenticated, optionally redirect away
+            //if (User?.Identity?.IsAuthenticated ?? false)
+            //{
+            //    // redirect to returnUrl or default landing
+            //    var returnUrl = Request.QueryString["ReturnUrl"];
+            //    if (!string.IsNullOrEmpty(returnUrl)) Response.Redirect(returnUrl);
+            //    else Response.Redirect(User.IsInRole("Admin") ? "AdminReviews.aspx" : "ClientPortal.aspx");
+            //}
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             lblError.Text = string.Empty;
-
             if (!Page.IsValid) return;
 
             var username = txtUser.Text.Trim();
@@ -34,9 +33,9 @@ namespace RCTemp
             try
             {
                 var user = UserRepository.ValidateUser(username, password);
-                if (user == null)
+                if (user == null || !string.Equals(user.Role, "Admin", StringComparison.OrdinalIgnoreCase))
                 {
-                    lblError.Text = "Invalid username or password.";
+                    lblError.Text = "Invalid credentials or not an admin.";
                     return;
                 }
 

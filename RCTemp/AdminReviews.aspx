@@ -14,7 +14,7 @@
         </asp:Panel>
 
         <asp:GridView ID="grdReviews" runat="server" AutoGenerateColumns="False" CssClass="table table-striped"
-            OnRowCommand="grdReviews_RowCommand" EmptyDataText="No submissions." DataKeyNames="ReviewId" DataSourceID="SqlDataSource1" AllowSorting="True" AllowPaging="True">
+            OnRowCommand="grdReviews_RowCommand" EmptyDataText="No submissions." DataKeyNames="ReviewId" AllowSorting="True" AllowPaging="True">
             <Columns>
                 <asp:BoundField DataField="ReviewId" HeaderText="ReviewId" ItemStyle-Width="60px" InsertVisible="False" ReadOnly="True" SortExpression="ReviewId" />
                 <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />

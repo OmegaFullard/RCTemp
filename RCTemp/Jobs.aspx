@@ -7,9 +7,9 @@
             <a class="btn btn-primary" href="JobEdit.aspx">Post New Job</a>
         </div>
 
-        <asp:TextBox ID="txtTitle" runat="server" />
-<asp:TextBox ID="txtLocation" runat="server" />
-<asp:TextBox ID="txtType" runat="server" />
+<asp:TextBox ID="txtTitle" runat="server" Placeholder="Title" Width="300px" />
+<asp:TextBox ID="txtLocation" runat="server" Placeholder="Location" Width="300px" />
+<asp:TextBox ID="txtType" runat="server" Placeholder="Type" Width="300px" />
 <asp:DropDownList ID="ddlPageSize" runat="server">
     <asp:ListItem>10</asp:ListItem>
     <asp:ListItem>25</asp:ListItem>

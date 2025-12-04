@@ -853,6 +853,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="PdfFonts\SimpleFontResolver.cs" />
     <Compile Include="Privacy.aspx.cs">
       <DependentUpon>Privacy.aspx</DependentUpon>
@@ -868,6 +869,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ResumeReview.aspx.cs">
       <DependentUpon>ResumeReview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
