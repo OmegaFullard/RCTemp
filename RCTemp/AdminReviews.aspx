@@ -30,7 +30,7 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="Data Source=OIT-L-BY10S73\SQLEXPRESS2019;Initial Catalog=RCTemp;Integrated Security=True;Trust Server Certificate=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [ResumeReviews]"></asp:SqlDataSource>
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="Data Source=OIT-L-9Z00RW3\SQLEXPRESS;Initial Catalog=RCTemp;Integrated Security=True;Trust Server Certificate=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [ResumeReviews]"></asp:SqlDataSource>
         <asp:Label ID="lblMsg" runat="server" CssClass="text-danger"></asp:Label>
     </div>
 </asp:Content>

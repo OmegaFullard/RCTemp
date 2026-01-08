@@ -107,8 +107,8 @@ namespace RCTemp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=OIT-L-BY10S73\\SQLEXPRESS2019;Initial Catalog=RCTemp;Integrated Securi" +
-            "ty=True;Trust Server Certificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=OIT-L-9Z00RW3\\SQLEXPRESS;Initial Catalog=RCTemp;Integrated Security=T" +
+            "rue;Trust Server Certificate=True")]
         public string RCTempConnectionString {
             get {
                 return ((string)(this["RCTempConnectionString"]));
