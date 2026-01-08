@@ -43,7 +43,7 @@ Bio = Bill specializes in IT and engineering recruitment.
 
 Nicole Rappenport
 
-![nicole](https://github.com/user-attachments/assets/fc972f13-ed90-4216-97b5-24feed4abb00)
+<img width="75" height="75" alt="nicole" src=https://github.com/user-attachments/assets/fc972f13-ed90-4216-97b5-24feed4abb00 />
 
  Title = Client Success Manager
 Location = Royal City, PA
@@ -54,6 +54,7 @@ Bio = Nicole manages long-term client relationships and onboarding.
               
                
 Jessie Baker
+
 <img width="75" height="75" alt="jessie" src="https://github.com/user-attachments/assets/4247abf8-b402-4445-8d7e-b3ee8db52250" />
 
 Director of Operations
@@ -66,7 +67,7 @@ Email = Jessie.Baker@royalcitytemps.com
 
 Lilith Carlton
                     
-<img width="545" height="545" alt="lilith" src="https://github.com/user-attachments/assets/82c16cb4-f9ff-4bf5-8e80-c7f96be05794" />
+<img width="75" height="75" alt="lilith" src="https://github.com/user-attachments/assets/82c16cb4-f9ff-4bf5-8e80-c7f96be05794" />
 
 Title = Senior IT Recruiter
 Location = Midtown Royal City, PA
@@ -88,7 +89,7 @@ Bio = Kannady manages long-term client relationships and onboarding.
                 
 Skylar Olstein
                     
-<img width="523" height="523" alt="skylar" src="https://github.com/user-attachments/assets/4fac54fd-58e5-432f-bffd-b8c42405326b" />
+<img width="75" height="75" alt="skylar" src="https://github.com/user-attachments/assets/4fac54fd-58e5-432f-bffd-b8c42405326b" />
 
 Title = Talent Success Manager
 Location = Uptown Royal City, PA
@@ -106,7 +107,7 @@ Location = Midtown Royal City, PA
 Phone = (555) 987-6543
 Email = Adam.Black@royalcitytemps.com
 
-Bio = Marcus specializes in advertisement and marketing strategies.
+Bio = Adam specializes in advertisement and marketing strategies.
 
 ## Contact
 
