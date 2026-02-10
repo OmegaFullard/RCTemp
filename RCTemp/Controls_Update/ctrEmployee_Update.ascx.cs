@@ -66,7 +66,7 @@ namespace RCTemp.Controls_Update
                         txtFN.Text = withBlock.FN.ToString();
                         txtLN.Text = withBlock.LN.ToString();
 
-                        if (!withBlock.IsEmailNull())
+                        if (withBlock.Email != null)
                             txtemail.Text = withBlock.Email;
                         if (!withBlock.IsAvailableNull())
                             txtavailable.Text = withBlock.Available;
@@ -134,9 +134,9 @@ namespace RCTemp.Controls_Update
             txtFN.Text = withBlock.FN.ToString();
             txtLN.Text = withBlock.LN.ToString();
             if (!withBlock.IsPhoneNull())
+                txtphone.Text = withBlock.Phone.Trim();
+            if (withBlock.Email != null)
                 txtemail.Text = withBlock.Email.Trim();
-            if (!withBlock.IsEmailNull())
-                txtemail.Text = withBlock.Email.ToString();
             if (!withBlock.IsAvailableNull())
                 txtavailable.Text = withBlock.Available.Trim();
             this.btnUpdate.Enabled = true;

@@ -35,7 +35,7 @@ namespace RCTemp.Classes
             try
             {
                 EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
-                EmployeesDataTable tblEmployee = adpEmployee.GetDataByEmpID(EmpID);
+                EmployeesDataTable tblEmployee = adpEmployee.GetDataByEmpID((byte)EmpID);
                 return tblEmployee;
             }
             catch (Exception)
@@ -79,11 +79,10 @@ namespace RCTemp.Classes
 
             try
             {
-
                 if (true)
                 {
                     var withBlock = thisEmployee;
-                    adpEmployee.DeleteQuery(withBlock.EmpID);
+                    adpEmployee.DeleteQuery((byte)withBlock.EmpID);
                 }
             }
             catch (Exception)
@@ -112,7 +111,7 @@ namespace RCTemp.Classes
             try
             {
                 EmployeesTableAdapter adpEmployee = new EmployeesTableAdapter();
-                EmployeesDataTable tblEmployee = adpEmployee.GetDataByEmpID(EmpID);
+                EmployeesDataTable tblEmployee = adpEmployee.GetDataByEmpID((byte)EmpID);
                 return tblEmployee;
             }
             catch (Exception)
