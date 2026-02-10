@@ -11,7 +11,7 @@ namespace RCTemp
         public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Title { get; set; }
+        public new string Title { get; set; } // Use 'new' to hide inherited member
         public string Location { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

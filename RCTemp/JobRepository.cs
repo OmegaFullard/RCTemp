@@ -39,11 +39,11 @@ namespace RCTemp
 
     public static class JobRepository
     {
-        private static readonly List<Job> _jobs;
+        // private static readonly List<Job> _jobs;
         // private static readonly Dictionary<string, List<SavedSearch>> _savedSearchesByUser = new Dictionary<string, List<SavedSearch>>(StringComparer.OrdinalIgnoreCase);
         // private static readonly Dictionary<string, List<JobAlert>> _alertsByUser = new Dictionary<string, List<JobAlert>>(StringComparer.OrdinalIgnoreCase);
-        private static int _nextSavedSearchId = 1;
-        private static int _nextAlertId = 1;
+       // private static int _nextSavedSearchId = 1;
+        //private static int _nextAlertId = 1;
         private static string GetConnectionString()
         {
             var cs = ConfigurationManager.ConnectionStrings["RCTempConnection"];
