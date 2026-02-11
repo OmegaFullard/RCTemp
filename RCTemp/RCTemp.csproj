@@ -471,6 +471,7 @@
     <Content Include="Database\CreateJobsTable.sql" />
     <Content Include="Database\CreateResumeReviewsTable.sql" />
     <Content Include="Default.aspx" />
+    <Content Include="Directions.aspx" />
     <Content Include="Employee.aspx" />
     <Content Include="Employee_Add.aspx" />
     <Content Include="Employee_Delete.aspx" />
@@ -779,6 +780,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Directions.aspx.cs">
+      <DependentUpon>Directions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Directions.aspx.designer.cs">
+      <DependentUpon>Directions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee.aspx.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -855,6 +863,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="PdfFonts\SimpleFontResolver.cs" />
     <Compile Include="Privacy.aspx.cs">

@@ -87,6 +87,29 @@ namespace RCTemp
             }
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            // Clear any error messages
+            lblError.Text = string.Empty;
+            
+            // Clear the input fields
+            txtUser.Text = string.Empty;
+            txtPwd.Text = string.Empty;
+            
+            // Check if there's a return URL to go back to
+            var returnUrl = Request.QueryString["ReturnUrl"];
+            
+            if (!string.IsNullOrEmpty(returnUrl) && UrlIsLocal(returnUrl))
+            {
+                Response.Redirect(returnUrl);
+            }
+            else
+            {
+                // Redirect to home/default page
+                Response.Redirect("~/Default.aspx");
+            }
+        }
+
         private bool UrlIsLocal(string url)
         {
             // simple check for local URL to avoid open redirect

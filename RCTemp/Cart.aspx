@@ -132,7 +132,8 @@
               <label for="state" class="form-label">State</label>
               <select class="form-select" id="state" >
                 <option value="">Choose...</option>
-                 <option>Alabama</option>
+                
+ <option>Alabama</option>
  <option>Alaska</option>
  <option>Arizona</option>
  <option>Arkansas</option>
@@ -161,7 +162,7 @@
  <option>Nebraska</option>
  <option>Nevada</option>
  <option>New Hampshire</option>
-<option>New Jersey</option>
+ <option>New Jersey</option>
   <option>New Mexico</option>
   <option>New York</option>
   <option>North Carolina</option>
@@ -275,9 +276,11 @@
   
     <div>
   
-    
+    <br />
+        <br />
+        &nbsp;&nbsp;&nbsp
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="Privacy.aspx">Privacy</a></li>
+     &nbsp;&nbsp;&nbsp <li class="list-inline-item"><a href="Privacy.aspx">Privacy</a></li>
       <li class="list-inline-item"><a href="Terms.aspx">Terms</a></li>
       <li class="list-inline-item"><a href="Support.aspx">Support</a></li>
     </ul>

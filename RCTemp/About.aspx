@@ -21,7 +21,7 @@
 <p>Our team is the best staffing agency in Royal City to help keep companies running and people working, so reach out and let us know how we can help.</p>
 <br />
 <hr />
-                <p>Meet Our Team</p> <button type="button" class="w-100 btn btn-lg btn-primary" >Team</button>
+                <p>Meet Our Team</p> <a href="Team.aspx" class="w-100 btn btn-lg btn-primary">Team</a>
 
 <br />
 
@@ -57,7 +57,7 @@
     </p> 
 	
 	<strong>Staffing Options:</strong>
-	<p>Our stffing options are Temporary, Direct Hire, and Temp-to-Perm.</p>
+	<p>Our staffing options are Temporary, Direct Hire, and Temp-to-Perm.</p>
 	<br />
  <hr />
 
@@ -76,7 +76,7 @@
  <hr />
 
 <strong>Staffing Options</strong>
-	<p>Our stffing options are Temporary, Direct Hire, and Temp-to-Perm.</p>
+	<p>Our staffing options are Temporary, Direct Hire, and Temp-to-Perm.</p>
 
                 </div>
            </section>

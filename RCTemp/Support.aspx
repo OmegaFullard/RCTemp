@@ -20,12 +20,12 @@
     Offering 24/7 Support to our clients through our partner "Royal City Help Desk".
                <br />
                Please feel free to contact us for addtional infromation.
-               <a href="Contact.aspx"></a> 
+           
   
     </p>
-    <button class="btn btn-primary px-5 mb-5" type="button">
-      
-    </button>
+    <a href="Contact.aspx" class="btn btn-primary my-2">
+      Contact
+    </a>
   </div>
 </div>
 
@@ -53,7 +53,8 @@
 			   
             <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d12234.543958929013!2d-75.16621169999999!3d39.94953124999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s39.57.09%2C75.10.14.8!5e0!3m2!1sen!2sus!4v1723056453703!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
      <br />
-            <a href="#" class="btn btn-primary">Directions</a>
+    <br />
+            <a class="btn btn-primary" href="Directions.aspx">Directions</a>
             <a href="https://google.com/maps?q=39.57.09,75.10.14.8"></a>
         
     <br />

@@ -33,6 +33,7 @@
         <p class="mt-3">
             <asp:HyperLink runat="server" ID="RegisterHyperLink" NavigateUrl="~/Register.aspx">Register</asp:HyperLink>
             <br />
+            <br />
             If you don't have a local account.
         </p>
     </div>

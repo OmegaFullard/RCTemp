@@ -112,15 +112,15 @@ OFFSET @offset ROWS FETCH NEXT @pageSize ROWS ONLY;";
                     while (rdr.Read())
                     {
                         list.Add(new Job
-                        {
-                            JobId = (int)rdr["JobId"],
-                            Title = rdr["Title"] as string,
-                            Description = rdr["Description"] as string,
-                            Location = rdr["Location"] as string,
-                            EmploymentType = rdr["EmploymentType"] as string,
-                            PostedDate = (DateTime)rdr["PostedDate"],
-                            IsActive = (bool)rdr["IsActive"]
-                        });
+{
+    JobId = Convert.ToInt32(rdr["JobId"]),  // Handles Byte to int conversion
+    Title = rdr["Title"] as string,
+    Description = rdr["Description"] as string,
+    Location = rdr["Location"] as string,
+    EmploymentType = rdr["EmploymentType"] as string,
+    PostedDate = (DateTime)rdr["PostedDate"],
+    IsActive = Convert.ToBoolean(rdr["IsActive"])  // Handles Int16 to bool conversion
+});
                     }
                 }
             }
@@ -142,13 +142,13 @@ OFFSET @offset ROWS FETCH NEXT @pageSize ROWS ONLY;";
                     {
                         return new Job
                         {
-                            JobId = (int)rdr["JobId"],
+                            JobId = Convert.ToInt32(rdr["JobId"]),
                             Title = rdr["Title"] as string,
                             Description = rdr["Description"] as string,
                             Location = rdr["Location"] as string,
                             EmploymentType = rdr["EmploymentType"] as string,
                             PostedDate = (DateTime)rdr["PostedDate"],
-                            IsActive = (bool)rdr["IsActive"]
+                            IsActive = Convert.ToBoolean(rdr["IsActive"])
                         };
                     }
                 }
