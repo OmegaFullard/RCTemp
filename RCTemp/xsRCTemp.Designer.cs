@@ -2638,32 +2638,29 @@ namespace RCTemp.xsRCTempTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT FN, LN, EmpID, Phone, Email, Available\r\nFROM   Employees";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[1] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
             this._commandCollection[1].CommandText = "DELETE FROM Employees\r\nWHERE (EmpID = @Original_EmpID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
-            this._commandCollection[2].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpI" +
-                "D) ORDER BY LN";
+            this._commandCollection[1].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@Original_EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[2].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpID) ORDER BY LN";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
-            this._commandCollection[3].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpI" +
-                "D)";
+            this._commandCollection[2].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[3].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
-            this._commandCollection[4].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpI" +
-                "D) AND (LN = @LN)";
+            this._commandCollection[3].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[4].CommandText = "SELECT Available, Email, EmpID, FN, LN, Phone FROM Employees WHERE (EmpID = @EmpID) AND (LN = @LN)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LN", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "LN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[4].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@LN", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "LN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
             this._commandCollection[5].CommandText = "INSERT INTO Employees (FN, LN, EmpID, Phone, Email, Available) VALUES (@FN, @LN, " +
                 "@EmpID, @Phone, @Email, @Available)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
@@ -2671,10 +2668,10 @@ namespace RCTemp.xsRCTempTableAdapters {
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LN", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "LN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NChar, 15, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Available", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[5].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@Available", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Available", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
             this._commandCollection[6].CommandText = "UPDATE Employees\r\nSET      EmpID = @EmpID, FN = @FN, LN = @LN, Phone = @Phone, Em" +
                 "ail = @Email, Available = @Available\r\nWHERE (EmpID = @Original_EmpID)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
@@ -2950,7 +2947,7 @@ namespace RCTemp.xsRCTempTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteQuery(byte Original_EmpID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((byte)(Original_EmpID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2974,7 +2971,7 @@ namespace RCTemp.xsRCTempTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(string FN, string LN, int EmpID, string Phone, string Email, string Available) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((FN == null)) {
                 throw new global::System.ArgumentNullException("FN");
             }
@@ -3028,7 +3025,7 @@ namespace RCTemp.xsRCTempTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(int EmpID, string FN, string LN, string Phone, string Email, string Available, int Original_EmpID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::Microsoft.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             command.Parameters[0].Value = ((int)(EmpID));
             if ((FN == null)) {
                 throw new global::System.ArgumentNullException("FN");
@@ -3260,12 +3257,11 @@ namespace RCTemp.xsRCTempTableAdapters {
             this._commandCollection[0].CommandText = "SELECT EmpID, LN, CAST(EmpID AS VARCHAR) + \'|\' + LN AS EmployeeList\r\nFROM   Emplo" +
                 "yees\r\nORDER BY LN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
-            this._commandCollection[1].CommandText = "SELECT EmpID, CAST(EmpID AS VARCHAR) + \'|\' + LN AS EmployeeList, LN FROM Employee" +
-                "s WHERE (EmpID = @EmpID) ORDER BY LN";
+            this._commandCollection[1] = new global::Microsoft.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = new global::Microsoft.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RCTempConnectionString"].ConnectionString);
+            this._commandCollection[1].CommandText = "SELECT EmpID, CAST(EmpID AS VARCHAR) + \'|\' + LN AS EmployeeList, LN FROM Employees WHERE (EmpID = @EmpID) ORDER BY LN";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::Microsoft.Data.SqlClient.SqlParameter("@EmpID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "EmpID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
