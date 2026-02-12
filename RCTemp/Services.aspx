@@ -165,7 +165,7 @@
         <h5>About</h5>
         <ul class="list-unstyled text-small">
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="Team.aspx">Team</a></li>
-          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Contact.aspx">Locations</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="Directions.aspx">Locations</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="Privacy.aspx">Privacy</a></li>
           <li class="mb-1"><a class="link-secondary text-decoration-none" href="Terms.aspx">Terms</a></li>
         </ul>

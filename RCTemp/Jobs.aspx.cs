@@ -11,8 +11,9 @@ namespace RCTemp
         protected TextBox txtLocation;
         protected TextBox txtType;
         protected DropDownList ddlPageSize;
-        //protected GridView grdJobs;
-        //protected Label lblResults;
+        protected GridView grdJobs;
+        protected Label lblResults;
+        
         private int PageIndex => ParseInt(Request.QueryString["page"], 1);
         private int PageSize => ParseInt(Request.QueryString["pagesize"], 10);
         private string TitleFilter => Request.QueryString["title"] ?? string.Empty;
@@ -23,43 +24,83 @@ namespace RCTemp
         {
             if (!IsPostBack)
             {
-                // initialize form controls from querystring
+                // Initialize form controls from querystring
                 txtTitle.Text = TitleFilter;
                 txtLocation.Text = LocationFilter;
                 txtType.Text = TypeFilter;
                 ddlPageSize.SelectedValue = PageSize.ToString();
+                
+                // Load jobs with current filters
                 BindJobs(PageIndex);
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            // redirect to same page with query string filters and page=1
+            // Redirect to same page with query string filters and reset to page 1
             var qs = HttpUtility.ParseQueryString(string.Empty);
-            if (!string.IsNullOrWhiteSpace(txtTitle.Text)) qs["title"] = txtTitle.Text.Trim();
-            if (!string.IsNullOrWhiteSpace(txtLocation.Text)) qs["location"] = txtLocation.Text.Trim();
-            if (!string.IsNullOrWhiteSpace(txtType.Text)) qs["type"] = txtType.Text.Trim();
-            qs["pagesize"] = (ddlPageSize != null) ? ddlPageSize.SelectedValue : PageSize.ToString();
-            qs["page"] = "1";
+            
+            // Add filters to query string
+            if (!string.IsNullOrWhiteSpace(txtTitle.Text))
+                qs["title"] = txtTitle.Text.Trim();
+                
+            if (!string.IsNullOrWhiteSpace(txtLocation.Text))
+                qs["location"] = txtLocation.Text.Trim();
+                
+            if (!string.IsNullOrWhiteSpace(txtType.Text))
+                qs["type"] = txtType.Text.Trim();
+                
+            qs["pagesize"] = ddlPageSize.SelectedValue;
+            qs["page"] = "1"; // Reset to first page on new search
+            
             Response.Redirect("Jobs.aspx?" + qs.ToString());
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            // Redirect to page without any filters
+            Response.Redirect("Jobs.aspx");
         }
 
         private void BindJobs(int page)
         {
             int total;
-            var jobs = JobRepository.GetPaged(TitleFilter, LocationFilter, TypeFilter, page, PageSize, out total);
+            
+            // Get jobs from repository with filters
+            var jobs = JobRepository.GetPaged(
+                TitleFilter, 
+                LocationFilter, 
+                TypeFilter, 
+                page, 
+                PageSize, 
+                out total
+            );
 
+            // Bind to GridView
             if (grdJobs != null)
             {
                 grdJobs.DataSource = jobs;
                 grdJobs.DataBind();
             }
 
+            // Update results label
             if (lblResults != null)
             {
-                lblResults.Text = $"Showing page {page} of {Math.Max(1, (int)Math.Ceiling(total / (double)PageSize))} — {total} job(s) total";
+                int totalPages = Math.Max(1, (int)Math.Ceiling(total / (double)PageSize));
+                
+                if (total == 0)
+                {
+                    lblResults.Text = "No jobs found";
+                }
+                else
+                {
+                    int startItem = ((page - 1) * PageSize) + 1;
+                    int endItem = Math.Min(page * PageSize, total);
+                    lblResults.Text = $"Showing {startItem}-{endItem} of {total} job(s) (Page {page} of {totalPages})";
+                }
             }
 
+            // Render pagination
             RenderPager(total, page, PageSize);
         }
 
@@ -70,7 +111,8 @@ namespace RCTemp
                 if (int.TryParse(e.CommandArgument.ToString(), out int id))
                 {
                     JobRepository.Delete(id);
-                    // keep the current page in querystring
+                    
+                    // Redirect back to current page with filters preserved
                     Response.Redirect(BuildQueryUrl(PageIndex));
                 }
             }
@@ -79,43 +121,85 @@ namespace RCTemp
         private void RenderPager(int totalItems, int currentPage, int pageSize)
         {
             int totalPages = Math.Max(1, (int)Math.Ceiling(totalItems / (double)pageSize));
-            var ul = (System.Web.UI.HtmlControls.HtmlGenericControl)FindControl("pager") ?? new System.Web.UI.HtmlControls.HtmlGenericControl();
-
-            // clear existing pager (rebuild)
             var pagerControl = this.FindControl("pager");
+            
             if (pagerControl != null)
             {
-                // remove child nodes
+                // Clear existing pager
                 pagerControl.Controls.Clear();
-            }
+                
+                // Don't show pager if only one page
+                if (totalPages <= 1)
+                    return;
 
-            for (int i = 1; i <= totalPages; i++)
-            {
-                var li = new System.Web.UI.HtmlControls.HtmlGenericControl("li");
-                li.Attributes["class"] = "page-item" + (i == currentPage ? " active" : "");
-                var a = new System.Web.UI.HtmlControls.HtmlGenericControl("a");
-                a.Attributes["class"] = "page-link";
-                a.Attributes["href"] = BuildQueryUrl(i);
-                a.InnerText = i.ToString();
-                li.Controls.Add(a);
-                if (pagerControl != null) pagerControl.Controls.Add(li);
+                // Previous button
+                if (currentPage > 1)
+                {
+                    var liPrev = new System.Web.UI.HtmlControls.HtmlGenericControl("li");
+                    liPrev.Attributes["class"] = "page-item";
+                    var aPrev = new System.Web.UI.HtmlControls.HtmlGenericControl("a");
+                    aPrev.Attributes["class"] = "page-link";
+                    aPrev.Attributes["href"] = BuildQueryUrl(currentPage - 1);
+                    aPrev.InnerText = "Previous";
+                    liPrev.Controls.Add(aPrev);
+                    pagerControl.Controls.Add(liPrev);
+                }
+
+                // Page numbers
+                int startPage = Math.Max(1, currentPage - 2);
+                int endPage = Math.Min(totalPages, currentPage + 2);
+                
+                for (int i = startPage; i <= endPage; i++)
+                {
+                    var li = new System.Web.UI.HtmlControls.HtmlGenericControl("li");
+                    li.Attributes["class"] = "page-item" + (i == currentPage ? " active" : "");
+                    var a = new System.Web.UI.HtmlControls.HtmlGenericControl("a");
+                    a.Attributes["class"] = "page-link";
+                    a.Attributes["href"] = BuildQueryUrl(i);
+                    a.InnerText = i.ToString();
+                    li.Controls.Add(a);
+                    pagerControl.Controls.Add(li);
+                }
+
+                // Next button
+                if (currentPage < totalPages)
+                {
+                    var liNext = new System.Web.UI.HtmlControls.HtmlGenericControl("li");
+                    liNext.Attributes["class"] = "page-item";
+                    var aNext = new System.Web.UI.HtmlControls.HtmlGenericControl("a");
+                    aNext.Attributes["class"] = "page-link";
+                    aNext.Attributes["href"] = BuildQueryUrl(currentPage + 1);
+                    aNext.InnerText = "Next";
+                    liNext.Controls.Add(aNext);
+                    pagerControl.Controls.Add(liNext);
+                }
             }
         }
 
         private string BuildQueryUrl(int page)
         {
             var qs = HttpUtility.ParseQueryString(string.Empty);
-            if (!string.IsNullOrWhiteSpace(TitleFilter)) qs["title"] = TitleFilter;
-            if (!string.IsNullOrWhiteSpace(LocationFilter)) qs["location"] = LocationFilter;
-            if (!string.IsNullOrWhiteSpace(TypeFilter)) qs["type"] = TypeFilter;
-            qs["pagesize"] = (ddlPageSize != null) ? ddlPageSize.SelectedValue : PageSize.ToString();
+            
+            // Preserve current filters
+            if (!string.IsNullOrWhiteSpace(TitleFilter))
+                qs["title"] = TitleFilter;
+                
+            if (!string.IsNullOrWhiteSpace(LocationFilter))
+                qs["location"] = LocationFilter;
+                
+            if (!string.IsNullOrWhiteSpace(TypeFilter))
+                qs["type"] = TypeFilter;
+                
+            qs["pagesize"] = PageSize.ToString();
             qs["page"] = page.ToString();
+            
             return "Jobs.aspx?" + qs.ToString();
         }
 
         private static int ParseInt(string value, int defaultValue)
         {
-            if (int.TryParse(value, out int v)) return v;
+            if (int.TryParse(value, out int v))
+                return v;
             return defaultValue;
         }
     }

@@ -75,7 +75,7 @@ ORDER BY r.SubmittedDate DESC";
                             ApplicantName = rdr["ApplicantName"] as string,
                             Email = rdr["Email"] as string,
                             Phone = rdr["Phone"] as string,
-                            JobId = rdr["JobId"] as int?,
+                            JobId = rdr["JobId"] == DBNull.Value ? (int?)null : Convert.ToInt32(rdr["JobId"]),
                             FilePath = rdr["FilePath"] as string,
                             Status = rdr["Status"] as string,
                             ReviewerComments = rdr["ReviewerComments"] as string,

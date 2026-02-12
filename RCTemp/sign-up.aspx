@@ -140,7 +140,8 @@
 
 &nbsp;&nbsp; <p>
     <asp:HyperLink runat="server" ID="signinHyperLink" ViewStateMode="Disabled" NavigateUrl="~/sign-in.aspx">Sign In</asp:HyperLink>
-    <br />         
+    <br />  
+    <br />
     Already have an account?
 </p>
 <br />
