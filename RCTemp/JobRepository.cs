@@ -65,22 +65,22 @@ namespace RCTemp
             totalCount = 0;
 
             var where = new StringBuilder("WHERE 1=1");
-            var parameters = new List<SqlParameter>();
+            var hasTitle = !string.IsNullOrWhiteSpace(titleFilter);
+            var hasLocation = !string.IsNullOrWhiteSpace(locationFilter);
+            var hasType = !string.IsNullOrWhiteSpace(typeFilter);
 
-            if (!string.IsNullOrWhiteSpace(titleFilter))
+            // Build WHERE clause
+            if (hasTitle)
             {
                 where.Append(" AND Title LIKE @title");
-                parameters.Add(new SqlParameter("@title", "%" + titleFilter.Trim() + "%"));
             }
-            if (!string.IsNullOrWhiteSpace(locationFilter))
+            if (hasLocation)
             {
                 where.Append(" AND Location LIKE @location");
-                parameters.Add(new SqlParameter("@location", "%" + locationFilter.Trim() + "%"));
             }
-            if (!string.IsNullOrWhiteSpace(typeFilter))
+            if (hasType)
             {
                 where.Append(" AND EmploymentType LIKE @type");
-                parameters.Add(new SqlParameter("@type", "%" + typeFilter.Trim() + "%"));
             }
 
             var offset = (Math.Max(1, pageIndex) - 1) * pageSize;
@@ -91,36 +91,53 @@ SELECT JobId, Title, Description, Location, EmploymentType, PostedDate, IsActive
 FROM Jobs
 {where}
 ORDER BY PostedDate DESC
-OFFSET @offset ROWS FETCH NEXT @pageSize ROWS ONLY;";
+OFFSET @offset ROWS
+FETCH NEXT @pageSize ROWS ONLY;";
 
             using (var conn = new SqlConnection(GetConnectionString()))
             using (var countCmd = new SqlCommand(countSql, conn))
             using (var pageCmd = new SqlCommand(pageSql, conn))
             {
-                countCmd.Parameters.AddRange(parameters.ToArray());
-                pageCmd.Parameters.AddRange(parameters.ToArray());
-                pageCmd.Parameters.Add(new SqlParameter("@offset", offset));
-                pageCmd.Parameters.Add(new SqlParameter("@pageSize", pageSize));
+                // Add filter parameters to countCmd
+                if (hasTitle)
+                    countCmd.Parameters.AddWithValue("@title", "%" + titleFilter.Trim() + "%");
+                if (hasLocation)
+                    countCmd.Parameters.AddWithValue("@location", "%" + locationFilter.Trim() + "%");
+                if (hasType)
+                    countCmd.Parameters.AddWithValue("@type", "%" + typeFilter.Trim() + "%");
+
+                // Add filter parameters to pageCmd (separate instances)
+                if (hasTitle)
+                    pageCmd.Parameters.AddWithValue("@title", "%" + titleFilter.Trim() + "%");
+                if (hasLocation)
+                    pageCmd.Parameters.AddWithValue("@location", "%" + locationFilter.Trim() + "%");
+                if (hasType)
+                    pageCmd.Parameters.AddWithValue("@type", "%" + typeFilter.Trim() + "%");
+                
+                // Add pagination parameters
+                pageCmd.Parameters.AddWithValue("@offset", offset);
+                pageCmd.Parameters.AddWithValue("@pageSize", pageSize);
 
                 conn.Open();
 
-                // total count
+                // Get total count
                 totalCount = Convert.ToInt32(countCmd.ExecuteScalar());
 
+                // Get paged results
                 using (var rdr = pageCmd.ExecuteReader())
                 {
                     while (rdr.Read())
                     {
                         list.Add(new Job
-{
-    JobId = Convert.ToInt32(rdr["JobId"]),  // Handles Byte to int conversion
-    Title = rdr["Title"] as string,
-    Description = rdr["Description"] as string,
-    Location = rdr["Location"] as string,
-    EmploymentType = rdr["EmploymentType"] as string,
-    PostedDate = (DateTime)rdr["PostedDate"],
-    IsActive = Convert.ToBoolean(rdr["IsActive"])  // Handles Int16 to bool conversion
-});
+                        {
+                            JobId = Convert.ToInt32(rdr["JobId"]),
+                            Title = rdr["Title"] as string,
+                            Description = rdr["Description"] as string,
+                            Location = rdr["Location"] as string,
+                            EmploymentType = rdr["EmploymentType"] as string,
+                            PostedDate = (DateTime)rdr["PostedDate"],
+                            IsActive = Convert.ToBoolean(rdr["IsActive"])
+                        });
                     }
                 }
             }
