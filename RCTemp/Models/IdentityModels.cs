@@ -7,6 +7,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace RCTemp
 {
     public class ApplicationUser : IdentityUser, IUser<string>
@@ -54,48 +55,49 @@ namespace RCTemp
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        //    public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        //    {
+        //        var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
+        //        manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+        //        {
+        //            AllowOnlyAlphanumericUserNames = false,
+        //            RequireUniqueEmail = true
+        //        };
+
+        //        manager.PasswordValidator = new PasswordValidator
+        //        {
+        //            RequiredLength = 6,
+        //            RequireNonLetterOrDigit = false,
+        //            RequireDigit = false,
+        //            RequireLowercase = false,
+        //            RequireUppercase = false,
+        //        };
+
+        //        manager.UserLockoutEnabledByDefault = true;
+        //        manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+        //        manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+
+        //        return manager;
+        //    }
+        //}
+
+        public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
-            
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
+                : base(userManager, authenticationManager)
             {
-                AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
-            };
+            }
 
-            manager.PasswordValidator = new PasswordValidator
+            public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = false,
-                RequireUppercase = false,
-            };
+                return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+            }
 
-            manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
-
-            return manager;
-        }
-    }
-
-    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
-    {
-        public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
-            : base(userManager, authenticationManager)
-        {
-        }
-
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
-        {
-            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
-        }
-
-        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
-        {
-            return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+            public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
+            {
+                return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
+            }
         }
     }
 }
