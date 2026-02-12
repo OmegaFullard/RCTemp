@@ -3,6 +3,7 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Web;
+using System.Security.Policy;
 
 namespace RCTemp
 {
@@ -28,39 +29,65 @@ namespace RCTemp
                 return;
             }
 
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-
-            // Create user object
-            var user = new ApplicationUser()
+            try
             {
-                UserName = txtEmail.Text.Trim(),
-                Email = txtEmail.Text.Trim(),
-                FirstName = txtFirstName.Text.Trim(),
-                LastName = txtLastName.Text.Trim(),
-                Address = txtAddress.Text.Trim(),
-                Address2 = txtAddress2.Text.Trim(),
-                City = txtCity.Text.Trim(),
-                State = ddlState.SelectedValue,
-                ZipCode = txtZip.Text.Trim(),
-                PhoneNumber = txtPhone.Text.Trim()
-            };
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
 
-            // Create user with password
-            IdentityResult result = manager.Create(user, txtPassword.Text);
+                if (manager == null)
+                {
+                    ShowError("User manager is not available. Please contact support.");
+                    return;
+                }
 
-            if (result.Succeeded)
-            {
-                // Sign in the user
-                signInManager.SignIn(user, isPersistent: chkRememberMe.Checked, rememberBrowser: false);
+                // Create user object
+                var user = new ApplicationUser()
+                {
+                    UserName = txtEmail.Text.Trim(),
+                    Email = txtEmail.Text.Trim(),
+                    FirstName = txtFirstName.Text.Trim(),
+                    LastName = txtLastName.Text.Trim(),
+                    Address = txtAddress.Text.Trim(),
+                    Address2 = txtAddress2.Text.Trim(),
+                    City = txtCity.Text.Trim(),
+                    State = ddlState.SelectedValue,
+                    ZipCode = txtZip.Text.Trim(),
+                    PhoneNumber = txtPhone.Text.Trim()
+                };
 
-                // Redirect to return URL or default page
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                // Create user with password
+                IdentityResult result = manager.CreateAsync(user, txtPassword.Text).GetAwaiter().GetResult();
+
+                if (result.Succeeded)
+                {
+                    // Sign in the user
+                    if (signInManager != null)
+                    {
+                        // Use the async method and wait for completion
+                        signInManager.SignInAsync(user, isPersistent: chkRememberMe.Checked, rememberBrowser: false).GetAwaiter().GetResult();
+                    }
+
+                    // Redirect to return URL or default page
+                    string returnUrl = Request.QueryString["ReturnUrl"];
+                    if (!string.IsNullOrEmpty(returnUrl) && IsLocalUrl(returnUrl))
+                    {
+                        Response.Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                }
+                else
+                {
+                    // Display errors
+                    DisplayErrors(result);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Display errors
-                DisplayErrors(result);
+                System.Diagnostics.Debug.WriteLine($"Registration error: {ex.Message}");
+                ShowError("An error occurred during registration. Please try again.");
             }
         }
 
@@ -171,6 +198,16 @@ namespace RCTemp
             // For now, using ClientScript to show an alert
             string script = $"alert('{message.Replace("'", "\\'")}');";
             ClientScript.RegisterStartupScript(this.GetType(), "ValidationError", script, true);
+        }
+
+        private bool IsLocalUrl(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+                return false;
+
+            // Prevent open redirect vulnerabilities
+            return (url.StartsWith("/") && !url.StartsWith("//") && !url.StartsWith("/\\"))
+                || url.StartsWith("~/");
         }
     }
 }
