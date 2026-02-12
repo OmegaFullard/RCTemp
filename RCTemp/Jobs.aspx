@@ -33,7 +33,7 @@
                         </asp:DropDownList>
                     </div>
                     <div class="col-md-1 d-flex align-items-end">
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-success w-100" OnClick="btnSearch_Click" />
+                        <asp:Button ID="btnSearch" runat="server" Text="Go" CssClass="btn btn-success w-100" OnClick="btnSearch_Click" />
                     </div>
                 </div>
                 <div class="row mt-2">
