@@ -13,5 +13,23 @@ namespace RCTemp
         {
 
         }
+
+        protected void btnSubmitContact_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid)
+            {
+                lblContactStatus.ForeColor = System.Drawing.Color.Red;
+                lblContactStatus.Text = "Please fix validation errors and try again.";
+                return;
+            }
+
+            lblContactStatus.ForeColor = System.Drawing.Color.Green;
+            lblContactStatus.Text = "Thank you. Your message has been received.";
+
+            txtName.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtSubject.Text = string.Empty;
+            txtMessage.Text = string.Empty;
+        }
     }
 }

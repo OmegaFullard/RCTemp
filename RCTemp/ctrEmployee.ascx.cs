@@ -36,15 +36,33 @@ namespace RCTemp
 
             try
             {
-                if (Request.Form["ctl00$MainContent$ctrSearch_Employee$btnSearch"] == "Search")
-                    ctrHiddebField.Value = Convert.ToString(m_EmpID);
-                if ((Page.IsPostBack) & this.lblSearchResult.Text.Length > 0)
+                bool isSearchRequest = Request.Form["ctl00$ContentPlaceHolder1$ctrSearch_Employee$btnSearch"] == "Search"
+                                       || Request.Form["ctl00$MainContent$ctrSearch_Employee$btnSearch"] == "Search";
 
-                    tblEmployee = (EmployeesDataTable)theEmployee.GetEmployees(EmpID);
+                if (isSearchRequest)
+                {
+                    string postedEmpId = Request.Form["ctl00$ContentPlaceHolder1$ctrSearch_Employee$txtempid"]
+                                         ?? Request.Form["ctl00$MainContent$ctrSearch_Employee$txtempid"];
 
+                    int parsedEmpId;
+                    if (int.TryParse(postedEmpId, out parsedEmpId) && parsedEmpId > 0)
+                    {
+                        m_EmpID = parsedEmpId;
+                        ctrHiddebField.Value = parsedEmpId.ToString();
+                    }
+                }
+                else if (Page.IsPostBack)
+                {
+                    int hiddenEmpId;
+                    if (int.TryParse(ctrHiddebField.Value, out hiddenEmpId) && hiddenEmpId > 0)
+                    {
+                        m_EmpID = hiddenEmpId;
+                    }
+                }
 
+                if (m_EmpID > 0)
+                    tblEmployee = (EmployeesDataTable)theEmployee.GetEmployees(m_EmpID);
                 else
-
                     tblEmployee = (EmployeesDataTable)theEmployee.GetEmployeeList();
 
                 this.lblSearchResult.Text = tblEmployee.Rows.Count.ToString() + " Result(s)";

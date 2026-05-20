@@ -16,7 +16,7 @@ namespace RCTemp
             if (User?.Identity?.IsAuthenticated ?? false)
             {
                 // already logged in — send to client portal
-                Response.Redirect("ClientPortal.aspx");
+                Response.Redirect("JobEdit.aspx");
             }
         }
 
@@ -47,7 +47,7 @@ namespace RCTemp
                 var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, enc) { HttpOnly = true, Secure = Request.IsSecureConnection };
                 Response.Cookies.Add(cookie);
 
-                Response.Redirect("ClientPortal.aspx");
+                //Response.Redirect("JobEdit.aspx");
             }
             catch (SqlException sqlEx)
             {

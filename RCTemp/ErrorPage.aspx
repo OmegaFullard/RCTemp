@@ -4,7 +4,7 @@
             </asp:Content>
            <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder2" >
               <div aria-dropeffect="move" style="padding-left:30px; padding-right:10px; height:500px;overflow: auto; background:rgba(236, 236, 236, 1);">    
-                     <h2>CP Inventory</h2><br />
+                     <h2>Royal City Temp Agency</h2><br />
                    
                  <p>A fatal error has occurred. We cannot process your 
                                   request at this time.</p>

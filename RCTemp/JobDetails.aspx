@@ -21,7 +21,7 @@
 
             <div class="mt-3">
                 <a id="lnkApply" runat="server" class="btn btn-primary">Apply</a>
-                <a class="btn btn-secondary" href="Jobs.aspx">Back to jobs</a>
+                <a class="btn btn-secondary" href="ClientPortal.aspx">Back to jobs</a>
             </div>
         </asp:Panel>
 
