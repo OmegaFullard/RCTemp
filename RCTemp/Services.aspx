@@ -41,9 +41,8 @@
               <li>5 users included</li>
               <li>20 GB of storage</li>
               <li>limited email support</li>
-              
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" style="color: #2097db;">30 Day Free Trial</button>
+            <asp:Button ID="btnBronze" runat="server" CssClass="w-100 btn btn-lg btn-outline-primary" Style="color: #2097db;" Text="Add Bronze to Cart" OnClick="btnBronze_Click" />
           </div>
         </div>
       </div>
@@ -60,7 +59,7 @@
               <li>Priority email support</li>
               <li>Royal City Notification Center</li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary" >Get started</button>
+            <asp:Button ID="btnSilver" runat="server" CssClass="w-100 btn btn-lg btn-primary" Text="Add Silver to Cart" OnClick="btnSilver_Click" />
           </div>
         </div>
       </div>
@@ -77,7 +76,7 @@
               <li>Phone and email support 24/7</li>
               <li>Royal City Notification Center</li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary" >Contact us</button>
+            <asp:Button ID="btnGold" runat="server" CssClass="w-100 btn btn-lg btn-primary" Text="Add Gold to Cart" OnClick="btnGold_Click" />
           </div>
         </div>
       </div>
@@ -131,10 +130,12 @@
       <br />
       <br />
     
-    <center><a class="btn btn-primary" href="Cart.aspx" role="button">Continue to Checkout!</a></center>
+    <center>
+      <asp:Button ID="btnContinueToCheckout" runat="server" CssClass="btn btn-primary" Text="Continue to Checkout!" OnClick="btnContinueToCheckout_Click" />
+    </center>
              <br/>
             &nbsp;&nbsp;&nbsp;&nbsp;<a href="default.aspx"><< Back to Home</a>
-         
+
              <br/>
 
 

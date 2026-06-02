@@ -1,293 +1,239 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Cart.aspx.cs" Inherits="RCTemp.Cart" %>
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Cart.aspx.cs" Inherits="RCTemp.Cart" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
 
-      <asp:PlaceHolder runat="server">
-      <%: Scripts.Render("~/bundles/modernizr") %>
-  </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
 
-  <webopt:bundlereference runat="server" path="~/Content/css" />
+    <div class="container py-3">
+        <div class="py-5 text-center">
+            <h2>Checkout Form</h2>
+            <p class="lead">Review your selected services, add more items, or remove items before submitting your order.</p>
+        </div>
 
-      
-        <div class="container">
+        <asp:Label ID="lblCartMessage" runat="server" EnableViewState="false" CssClass="alert d-block" Visible="false"></asp:Label>
 
-    <div class="py-5 text-center">
-    
-      <h2>Checkout Form</h2>
+        <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-secondary">Your cart</span>
+                    <asp:Label ID="lblCartCount" runat="server" CssClass="badge bg-info rounded-pill">0</asp:Label>
+                </h4>
 
-    </div>
+                <asp:Repeater ID="rptCartItems" runat="server" OnItemCommand="rptCartItems_ItemCommand">
+                    <HeaderTemplate>
+                        <ul class="list-group mb-3">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <li class="list-group-item d-flex justify-content-between lh-sm align-items-start">
+                            <div class="me-2">
+                                <h6 class="my-0"><%# Eval("Name") %></h6>
+                                <small class="text-body-secondary"><%# Eval("Description") %></small>
+                                <div class="mt-2">
+                                    <asp:LinkButton ID="btnAddItem" runat="server" CommandName="AddOne" CommandArgument='<%# Eval("Code") %>' CssClass="btn btn-sm btn-outline-primary me-1">Add</asp:LinkButton>
+                                    <asp:LinkButton ID="btnRemoveItem" runat="server" CommandName="RemoveOne" CommandArgument='<%# Eval("Code") %>' CssClass="btn btn-sm btn-outline-danger">Remove</asp:LinkButton>
+                                </div>
+                            </div>
+                            <div class="text-end">
+                                <span class="d-block">Qty: <%# Eval("Quantity") %></span>
+                                <span class="text-body-secondary">$<%# Eval("LineTotal", "{0:0.00}") %></span>
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </ul>
+                    </FooterTemplate>
+                </asp:Repeater>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-secondary">Your cart</span>
-          <span class="badge bg-info rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Product name</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Second product</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Third item</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-            <div class="text-success">
-              <h6 class="my-0">Promo code</h6>
-              <small>VIPP</small>
-            </div>
-            <span class="text-success">−$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
+                <asp:Panel ID="pnlEmptyCart" runat="server" CssClass="alert alert-light border" Visible="false">
+                    Your cart is empty. Add a service plan to continue.
+                </asp:Panel>
 
-        <class="card p-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code"/>
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </>
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Billing address</h4>
-        <class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" />
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" />
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="username" class="form-label">Username</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="username" placeholder="Username" />
-              <div class="invalid-feedback">
-                  Your username is required.
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span>Total (USD)</span>
+                    <strong><asp:Label ID="lblCartTotal" runat="server">$0.00</asp:Label></strong>
                 </div>
-              </div>
+
+                <div class="d-grid gap-2">
+                    <asp:Button ID="btnClearCart" runat="server" CssClass="btn btn-outline-secondary" Text="Clear Cart" OnClick="btnClearCart_Click" />
+                    <asp:Button ID="btnContinueShopping" runat="server" CssClass="btn btn-primary" Text="Continue Shopping" OnClick="btnContinueShopping_Click" />
+                </div>
             </div>
 
-            <div class="col-12">
-              <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
+            <div class="col-md-7 col-lg-8">
+                <h4 class="mb-3">Billing address</h4>
+                <asp:ValidationSummary ID="vsCheckout" runat="server" CssClass="text-danger" ShowSummary="true" />
+
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="txtFirstName" CssClass="form-label" Text="First name"></asp:Label>
+                        <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="txtFirstName" ErrorMessage="First name is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-sm-6">
+                        <asp:Label ID="lblLastName" runat="server" AssociatedControlID="txtLastName" CssClass="form-label" Text="Last name"></asp:Label>
+                        <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ControlToValidate="txtLastName" ErrorMessage="Last name is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-12">
+                        <asp:Label ID="lblEmail" runat="server" AssociatedControlID="txtEmail" CssClass="form-label" Text="Email"></asp:Label>
+                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="you@example.com"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email is required." CssClass="text-danger" Display="Dynamic" />
+                        <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter a valid email address." CssClass="text-danger" Display="Dynamic" ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" />
+                    </div>
+
+                    <div class="col-12">
+                        <asp:Label ID="lblAddress" runat="server" AssociatedControlID="txtAddress" CssClass="form-label" Text="Address"></asp:Label>
+                        <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ControlToValidate="txtAddress" ErrorMessage="Address is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-12">
+                        <asp:Label ID="lblCity" runat="server" AssociatedControlID="txtCity" CssClass="form-label" Text="City"></asp:Label>
+                        <asp:TextBox ID="txtCity" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCity" runat="server" ControlToValidate="txtCity" ErrorMessage="City is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <asp:Label ID="lblState" runat="server" AssociatedControlID="ddlState" CssClass="form-label" Text="State"></asp:Label>
+                        <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select">
+                            <asp:ListItem Text="Choose..." Value="" />
+                            <asp:ListItem>Alabama</asp:ListItem>
+                            <asp:ListItem>Alaska</asp:ListItem>
+                            <asp:ListItem>Arizona</asp:ListItem>
+                            <asp:ListItem>Arkansas</asp:ListItem>
+                            <asp:ListItem>California</asp:ListItem>
+                            <asp:ListItem>Colorado</asp:ListItem>
+                            <asp:ListItem>Connecticut</asp:ListItem>
+                            <asp:ListItem>Delaware</asp:ListItem>
+                            <asp:ListItem>Florida</asp:ListItem>
+                            <asp:ListItem>Georgia</asp:ListItem>
+                            <asp:ListItem>Hawaii</asp:ListItem>
+                            <asp:ListItem>Idaho</asp:ListItem>
+                            <asp:ListItem>Illinois</asp:ListItem>
+                            <asp:ListItem>Indiana</asp:ListItem>
+                            <asp:ListItem>Iowa</asp:ListItem>
+                            <asp:ListItem>Kansas</asp:ListItem>
+                            <asp:ListItem>Kentucky</asp:ListItem>
+                            <asp:ListItem>Louisiana</asp:ListItem>
+                            <asp:ListItem>Maine</asp:ListItem>
+                            <asp:ListItem>Maryland</asp:ListItem>
+                            <asp:ListItem>Massachusetts</asp:ListItem>
+                            <asp:ListItem>Michigan</asp:ListItem>
+                            <asp:ListItem>Minnesota</asp:ListItem>
+                            <asp:ListItem>Mississippi</asp:ListItem>
+                            <asp:ListItem>Missouri</asp:ListItem>
+                            <asp:ListItem>Montana</asp:ListItem>
+                            <asp:ListItem>Nebraska</asp:ListItem>
+                            <asp:ListItem>Nevada</asp:ListItem>
+                            <asp:ListItem>New Hampshire</asp:ListItem>
+                            <asp:ListItem>New Jersey</asp:ListItem>
+                            <asp:ListItem>New Mexico</asp:ListItem>
+                            <asp:ListItem>New York</asp:ListItem>
+                            <asp:ListItem>North Carolina</asp:ListItem>
+                            <asp:ListItem>North Dakota</asp:ListItem>
+                            <asp:ListItem>Ohio</asp:ListItem>
+                            <asp:ListItem>Oklahoma</asp:ListItem>
+                            <asp:ListItem>Oregon</asp:ListItem>
+                            <asp:ListItem>Pennsylvania</asp:ListItem>
+                            <asp:ListItem>Rhode Island</asp:ListItem>
+                            <asp:ListItem>South Carolina</asp:ListItem>
+                            <asp:ListItem>South Dakota</asp:ListItem>
+                            <asp:ListItem>Tennessee</asp:ListItem>
+                            <asp:ListItem>Texas</asp:ListItem>
+                            <asp:ListItem>Utah</asp:ListItem>
+                            <asp:ListItem>Vermont</asp:ListItem>
+                            <asp:ListItem>Virginia</asp:ListItem>
+                            <asp:ListItem>Washington</asp:ListItem>
+                            <asp:ListItem>West Virginia</asp:ListItem>
+                            <asp:ListItem>Wisconsin</asp:ListItem>
+                            <asp:ListItem>Wyoming</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="rfvState" runat="server" ControlToValidate="ddlState" InitialValue="" ErrorMessage="State is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <asp:Label ID="lblZip" runat="server" AssociatedControlID="txtZip" CssClass="form-label" Text="Zip"></asp:Label>
+                        <asp:TextBox ID="txtZip" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvZip" runat="server" ControlToValidate="txtZip" ErrorMessage="Zip code is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="form-check">
+                    <asp:CheckBox ID="chkSameAddress" runat="server" CssClass="form-check-input" />
+                    <asp:Label ID="lblSameAddress" runat="server" AssociatedControlID="chkSameAddress" CssClass="form-check-label" Text="Shipping address is the same as my billing address"></asp:Label>
+                </div>
+
+                <div class="form-check">
+                    <asp:CheckBox ID="chkSaveInfo" runat="server" CssClass="form-check-input" />
+                    <asp:Label ID="lblSaveInfo" runat="server" AssociatedControlID="chkSaveInfo" CssClass="form-check-label" Text="Save this information for next time"></asp:Label>
+                </div>
+
+                <hr class="my-4" />
+
+                <h4 class="mb-3">Payment</h4>
+                <div class="my-3">
+                    <div class="form-check">
+                        <asp:RadioButton ID="rbCredit" runat="server" GroupName="paymentMethod" CssClass="form-check-input" Checked="true" />
+                        <asp:Label ID="lblCredit" runat="server" AssociatedControlID="rbCredit" CssClass="form-check-label" Text="Credit card"></asp:Label>
+                    </div>
+                    <div class="form-check">
+                        <asp:RadioButton ID="rbDebit" runat="server" GroupName="paymentMethod" CssClass="form-check-input" />
+                        <asp:Label ID="lblDebit" runat="server" AssociatedControlID="rbDebit" CssClass="form-check-label" Text="Debit card"></asp:Label>
+                    </div>
+                    <div class="form-check">
+                        <asp:RadioButton ID="rbPaypal" runat="server" GroupName="paymentMethod" CssClass="form-check-input" />
+                        <asp:Label ID="lblPaypal" runat="server" AssociatedControlID="rbPaypal" CssClass="form-check-label" Text="PayPal"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <asp:Label ID="lblCardName" runat="server" AssociatedControlID="txtCardName" CssClass="form-label" Text="Name on card"></asp:Label>
+                        <asp:TextBox ID="txtCardName" runat="server" CssClass="form-control" placeholder="required"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCardName" runat="server" ControlToValidate="txtCardName" ErrorMessage="Name on card is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <asp:Label ID="lblCardNumber" runat="server" AssociatedControlID="txtCardNumber" CssClass="form-label" Text="Credit card number"></asp:Label>
+                        <asp:TextBox ID="txtCardNumber" runat="server" CssClass="form-control" placeholder="required"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCardNumber" runat="server" ControlToValidate="txtCardNumber" ErrorMessage="Credit card number is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <asp:Label ID="lblExpiration" runat="server" AssociatedControlID="txtExpiration" CssClass="form-label" Text="Expiration"></asp:Label>
+                        <asp:TextBox ID="txtExpiration" runat="server" CssClass="form-control" placeholder="required"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvExpiration" runat="server" ControlToValidate="txtExpiration" ErrorMessage="Expiration date is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <asp:Label ID="lblCvv" runat="server" AssociatedControlID="txtCvv" CssClass="form-label" Text="CVV"></asp:Label>
+                        <asp:TextBox ID="txtCvv" runat="server" CssClass="form-control" placeholder="required"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvCvv" runat="server" ControlToValidate="txtCvv" ErrorMessage="Security code is required." CssClass="text-danger" Display="Dynamic" />
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <asp:Button ID="btnSubmitOrder" runat="server" CssClass="btn btn-success" Text="Submit Order" OnClick="btnSubmitOrder_Click" />
             </div>
+        </div>
 
-            <div class="col-12">
-              <label for="address" class="form-label">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" />
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"/>
-            </div>
-
-            <div class="col-md-5">
-              <label for="country" class="form-label">Country</label>
-              <select class="form-select" id="country" >
-                <option value="">Choose...</option>
-                <option>United States</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">State</label>
-              <select class="form-select" id="state" >
-                <option value="">Choose...</option>
-                
- <option>Alabama</option>
- <option>Alaska</option>
- <option>Arizona</option>
- <option>Arkansas</option>
- <option>California</option>
- <option>Colorado</option>
- <option>Connecticut</option>
- <option>Delaware</option>
- <option>Florida</option>
- <option>Georgia</option>
- <option>Hawaii</option>
- <option>Idaho</option>
- <option>Illinois</option>
- <option>Indiana</option>
- <option>Iowa</option>
- <option>Kansas</option>
- <option>Kentucky</option>
- <option>Louisiana</option>
- <option>Maine</option>
- <option>Maryland</option>
- <option>Massachusetts</option>
- <option>Michigan</option>
- <option>Minnesota</option>
- <option>Mississippi</option>
- <option>Missouri</option>
- <option>Montana</option>
- <option>Nebraska</option>
- <option>Nevada</option>
- <option>New Hampshire</option>
- <option>New Jersey</option>
-  <option>New Mexico</option>
-  <option>New York</option>
-  <option>North Carolina</option>
-  <option>North Dakota</option>
-  <option>Ohio</option>
-  <option>Oklahoma</option>
-  <option>Oregon</option>
-  <option>Pennsylvania</option>
-  <option>Rhode Island</option>
-  <option>South Carolina</option>
-  <option>South Dakota</option>
-   <option>Tennessee</option>
-   <option>Texas</option>
-   <option>Utah</option>
-   <option>Vermont</option>
-   <option>Virginia</option>
-   <option>Washington</option>
-   <option>West Virginia</option>
-  <option>Wisconsin</option>
-   <option>Wyoming</option>
-      
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="zip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="zip" placeholder="" />
-              <div class="invalid-feedback">
-                Zip code required.
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4"/>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address"/>
-            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info"/>
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
-          </div>
-
-          <hr class="my-4"/>
-
-          <h4 class="mb-3">Payment</h4>
-
-          <div class="my-3">
-            <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" />
-              <label class="form-check-label" for="credit">Credit card</label>
-            </div>
-            <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" />
-              <label class="form-check-label" for="debit">Debit card</label>
-            </div>
-            <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"/>
-              <label class="form-check-label" for="paypal">PayPal</label>
-            </div>
-          </div>
-
-          <div class="row gy-3">
-            <div class="col-md-6">
-              <label for="cc-name" class="form-label">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="required" />
-              <small class="text-body-secondary">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="required" />
-              <div class="invalid-feedback">
-                Credit card number is required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="required" />
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="required" />
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4"/>
-
-            <button class="btn btn-success" type="submit">Submit Order</button>
-
-      </div>
+        <div class="mt-4">
+            <br />
+            <br />
+            &nbsp;&nbsp;&nbsp
+            <ul class="list-inline">
+                &nbsp;&nbsp;&nbsp <li class="list-inline-item"><a href="Privacy.aspx">Privacy</a></li>
+                <li class="list-inline-item"><a href="Terms.aspx">Terms</a></li>
+                <li class="list-inline-item"><a href="Support.aspx">Support</a></li>
+            </ul>
+        </div>
     </div>
-
-            </div>
-  
-    <div>
-  
-    <br />
-        <br />
-        &nbsp;&nbsp;&nbsp
-    <ul class="list-inline">
-     &nbsp;&nbsp;&nbsp <li class="list-inline-item"><a href="Privacy.aspx">Privacy</a></li>
-      <li class="list-inline-item"><a href="Terms.aspx">Terms</a></li>
-      <li class="list-inline-item"><a href="Support.aspx">Support</a></li>
-    </ul>
-
-</div>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="checkout.js"></script>
-
-      </asp:Content>
+</asp:Content>

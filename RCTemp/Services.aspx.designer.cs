@@ -13,5 +13,9 @@ namespace RCTemp
 
     public partial class Services
     {
+        protected global::System.Web.UI.WebControls.Button btnBronze;
+        protected global::System.Web.UI.WebControls.Button btnSilver;
+        protected global::System.Web.UI.WebControls.Button btnGold;
+        protected global::System.Web.UI.WebControls.Button btnContinueToCheckout;
     }
 }
